@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'SuggestionsBox_Example', :exclusive => true do
+  pod 'SuggestionsBox', :path => '../'
+end
+
+target 'SuggestionsBox_Tests', :exclusive => true do
+  pod 'SuggestionsBox', :path => '../'
+
+  pod 'Quick', '~> 0.8'
+  pod 'Nimble', '~> 3.0'
+  pod 'FBSnapshotTestCase'
+  pod 'Nimble-Snapshots'
+end
