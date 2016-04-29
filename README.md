@@ -1,3 +1,3 @@
-# SuggestionsKit
-FeatureSuggestionKit helps your build better a product trough your user suggestions. 
-Integrate SuggestFeatureKit in your app.
+# SuggestionsBox
+SuggestionsBox helps your build better a product trough your user suggestions. 
+Integrate SuggestionsBox in your app.
