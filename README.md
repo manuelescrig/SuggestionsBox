@@ -1,3 +1,5 @@
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15173282/8175315a-175b-11e6-87aa-68a0f5abc634.png" align="center"></p>
+
 # SuggestionsBox
 
 [![CI Status](http://img.shields.io/travis/Manuel Escrig Ventura/SuggestionsBox.svg?style=flat)](https://travis-ci.org/Manuel Escrig Ventura/SuggestionsBox)
