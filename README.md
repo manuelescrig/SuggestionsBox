@@ -1,4 +1,4 @@
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15173921/41f3335c-175f-11e6-93c7-4a35f6c9cd27.png"></p>
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15174018/cfd2f16c-175f-11e6-9a15-4708166834db.png"></p>
 
 # SuggestionsBox
 
