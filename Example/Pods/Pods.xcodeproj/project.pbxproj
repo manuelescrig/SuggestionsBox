@@ -40,12 +40,12 @@
 		414E7DE672C48B93078A11E41BEC0BB4 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = 16919C7A4E4268D3FF7586B89894D6FD /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		415F29FE4E9D970954C46CD3CF4AE345 /* SatisfyAnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614CEF798B620B0B98837100B736AF5 /* SatisfyAnyOf.swift */; };
 		41E8F09F5FC631A90D7E818934D4094A /* Quick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64228F5CDC7D1D84B4330B40FFB69D8A /* Quick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		42F797491CD52A02004F9E05 /* SBSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797481CD52A02004F9E05 /* SBSuggestion.swift */; };
-		42F7974D1CD52A67004F9E05 /* SBComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7974C1CD52A67004F9E05 /* SBComment.swift */; };
-		42F7974F1CD52A89004F9E05 /* SBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7974E1CD52A89004F9E05 /* SBController.swift */; };
-		42F797511CD52AA1004F9E05 /* SBDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797501CD52AA1004F9E05 /* SBDetailController.swift */; };
-		42F797531CD52ABB004F9E05 /* SBNewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797521CD52ABB004F9E05 /* SBNewCommentController.swift */; };
-		42F797551CD52AD6004F9E05 /* SBNewSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797541CD52AD6004F9E05 /* SBNewSuggestionController.swift */; };
+		42F797491CD52A02004F9E05 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797481CD52A02004F9E05 /* Suggestion.swift */; };
+		42F7974D1CD52A67004F9E05 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7974C1CD52A67004F9E05 /* Comment.swift */; };
+		42F7974F1CD52A89004F9E05 /* SuggestionsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F7974E1CD52A89004F9E05 /* SuggestionsBox.swift */; };
+		42F797511CD52AA1004F9E05 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797501CD52AA1004F9E05 /* DetailController.swift */; };
+		42F797531CD52ABB004F9E05 /* NewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797521CD52ABB004F9E05 /* NewCommentController.swift */; };
+		42F797551CD52AD6004F9E05 /* NewSuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F797541CD52AD6004F9E05 /* NewSuggestionController.swift */; };
 		46842EED3B8224B4F4F65C86F0956F7D /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D05EE2BA25EB952B5E566EDE6048E /* QuickSelectedTestSuiteBuilder.swift */; };
 		47F4252DEFDE1FD558C94B874F716335 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F567A0F84D52EF356BEDCB9F4C9AE7 /* Foundation.framework */; };
 		486B74C8EFEB68AD25CE128F3051E432 /* ObjCExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33045C4D701E54CE8539A9038ADBFBDA /* ObjCExpectation.swift */; };
@@ -242,12 +242,12 @@
 		36215F7E5778F54BA3D2A39454D4B03F /* CurrentTestCaseTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CurrentTestCaseTracker.m; path = Sources/Nimble/objc/CurrentTestCaseTracker.m; sourceTree = "<group>"; };
 		3753FB85BDC3F4B2001AB6E3D62C2E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425293E77484F37F2F26FA98CECCAB9F /* AllPass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllPass.swift; path = Sources/Nimble/Matchers/AllPass.swift; sourceTree = "<group>"; };
-		42F797481CD52A02004F9E05 /* SBSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSuggestion.swift; sourceTree = "<group>"; };
-		42F7974C1CD52A67004F9E05 /* SBComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBComment.swift; sourceTree = "<group>"; };
-		42F7974E1CD52A89004F9E05 /* SBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBController.swift; sourceTree = "<group>"; };
-		42F797501CD52AA1004F9E05 /* SBDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDetailController.swift; sourceTree = "<group>"; };
-		42F797521CD52ABB004F9E05 /* SBNewCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBNewCommentController.swift; sourceTree = "<group>"; };
-		42F797541CD52AD6004F9E05 /* SBNewSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBNewSuggestionController.swift; sourceTree = "<group>"; };
+		42F797481CD52A02004F9E05 /* Suggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
+		42F7974C1CD52A67004F9E05 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		42F7974E1CD52A89004F9E05 /* SuggestionsBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsBox.swift; sourceTree = "<group>"; };
+		42F797501CD52AA1004F9E05 /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		42F797521CD52ABB004F9E05 /* NewCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentController.swift; sourceTree = "<group>"; };
+		42F797541CD52AD6004F9E05 /* NewSuggestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSuggestionController.swift; sourceTree = "<group>"; };
 		440C1E2EE5D680BE6079CE69974985C3 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Sources/Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		456A16952FF748F866B14FE0DD2ABC2C /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 		4957F682B3F1EE74D842B29320D0D131 /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Sources/Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
@@ -573,12 +573,12 @@
 		521166509752BEDCA61A25B3B9415B71 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42F797481CD52A02004F9E05 /* SBSuggestion.swift */,
-				42F7974C1CD52A67004F9E05 /* SBComment.swift */,
-				42F7974E1CD52A89004F9E05 /* SBController.swift */,
-				42F797501CD52AA1004F9E05 /* SBDetailController.swift */,
-				42F797521CD52ABB004F9E05 /* SBNewCommentController.swift */,
-				42F797541CD52AD6004F9E05 /* SBNewSuggestionController.swift */,
+				42F797481CD52A02004F9E05 /* Suggestion.swift */,
+				42F7974C1CD52A67004F9E05 /* Comment.swift */,
+				42F7974E1CD52A89004F9E05 /* SuggestionsBox.swift */,
+				42F797501CD52AA1004F9E05 /* DetailController.swift */,
+				42F797521CD52ABB004F9E05 /* NewCommentController.swift */,
+				42F797541CD52AD6004F9E05 /* NewSuggestionController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1157,20 +1157,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E529CF6315E6EB33FBA413EDC4BD9CF7 /* FBSnapshotTestCase-dummy.m in Sources */,
-				42F7974D1CD52A67004F9E05 /* SBComment.swift in Sources */,
+				42F7974D1CD52A67004F9E05 /* Comment.swift in Sources */,
 				BD3C7ABB0598A03B729F141633113043 /* FBSnapshotTestCase.m in Sources */,
 				94FDCD720E559DF4C535B3A8E93080C3 /* FBSnapshotTestCasePlatform.m in Sources */,
 				58CA52BCED9F6E2A9CCE4DF19E873D3E /* FBSnapshotTestController.m in Sources */,
-				42F797551CD52AD6004F9E05 /* SBNewSuggestionController.swift in Sources */,
+				42F797551CD52AD6004F9E05 /* NewSuggestionController.swift in Sources */,
 				8DECB970785FCBAB4A6315DAA0DB0DF2 /* SwiftSupport.swift in Sources */,
-				42F797511CD52AA1004F9E05 /* SBDetailController.swift in Sources */,
-				42F7974F1CD52A89004F9E05 /* SBController.swift in Sources */,
+				42F797511CD52AA1004F9E05 /* DetailController.swift in Sources */,
+				42F7974F1CD52A89004F9E05 /* SuggestionsBox.swift in Sources */,
 				E5EFBFEA24204492935B2FB2BA7D21B6 /* UIApplication+StrictKeyWindow.m in Sources */,
 				500CFFB619BA25FB57B6AF48F8CCD8F3 /* UIImage+Compare.m in Sources */,
-				42F797531CD52ABB004F9E05 /* SBNewCommentController.swift in Sources */,
+				42F797531CD52ABB004F9E05 /* NewCommentController.swift in Sources */,
 				3C85E62EBD0D660C3DB557FABF9B8E10 /* UIImage+Diff.m in Sources */,
 				90B7E2F40E17730F3E28449559B458E0 /* UIImage+Snapshot.m in Sources */,
-				42F797491CD52A02004F9E05 /* SBSuggestion.swift in Sources */,
+				42F797491CD52A02004F9E05 /* Suggestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
