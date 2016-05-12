@@ -1,14 +1,12 @@
+platform :ios, '8.0'
 use_frameworks!
 
-target 'SuggestionsBox_Example', :exclusive => true do
+target 'SuggestionsBox_Example' do
   pod 'SuggestionsBox', :path => '../'
 end
 
-target 'SuggestionsBox_Tests', :exclusive => true do
+target 'SuggestionsBox_Tests' do
   pod 'SuggestionsBox', :path => '../'
-
   pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
+  pod 'Nimble'
 end
