@@ -1,6 +1,0 @@
-framework module Pods_SuggestionsBox_Example {
-  umbrella header "Pods-SuggestionsBox_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
