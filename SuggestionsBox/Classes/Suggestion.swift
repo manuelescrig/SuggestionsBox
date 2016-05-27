@@ -7,7 +7,7 @@
 //
 
 
-struct Suggestion {
+public struct Suggestion {
 
     var suggestionId : Int
     var title: String
@@ -16,7 +16,7 @@ struct Suggestion {
     var favorites: Int
     var createdAt : NSDate
     
-    init(suggestionId : Int,
+    public init(suggestionId : Int,
          title: String,
          description: String,
          author: String,

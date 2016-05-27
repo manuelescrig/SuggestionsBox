@@ -69,8 +69,27 @@ public struct SuggestionsBoxConfig {
 
 }
 
+public protocol SuggestionsBoxDelegate : NSObjectProtocol {
+    
+    func suggestions() -> Array<Suggestion>
+
+    func commentsForSuggestionAtIndex(suggestionIndex: Int) -> Array<Comment>
+    
+    func newSuggestionAdded(newSuggestion: Suggestion)
+    
+    func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment)
+    
+    func suggestionFavoritedAtIndex(index: Int)
+    
+    func suggestionUnFavoritedAtIndex(index: Int)
+
+}
+
+
 public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    public var delegate: SuggestionsBoxDelegate?
+
     var tableView : UITableView = UITableView.init()
     var searchBar : UISearchBar = UISearchBar.init()
     var headerView : UIView = UIView.init()
@@ -80,6 +99,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     var featureRequests = [Suggestion]()
     var searchResults = [Suggestion]()
     
+
     // MARK: View Lyfe Cylce
     
     required public convenience init(coder aDecoder: NSCoder) {
@@ -204,13 +224,17 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Delegate
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.searchBar.resignFirstResponder()
         
-        let detailController = DetailController()
-        detailController.suggestion = searchResults[indexPath.row]
-        self.navigationController?.pushViewController(detailController, animated: true)
+        if let delegate = delegate {
+            let comments = delegate.commentsForSuggestionAtIndex(indexPath.row)
+            let detailController = DetailController()
+            detailController.suggestion = searchResults[indexPath.row]
+            detailController.comments = comments
+            self.navigationController?.pushViewController(detailController, animated: true)
+        }
+
     }
 
     
@@ -242,29 +266,12 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     
     func getData() {
         
-        let suggestion1 = Suggestion.init(suggestionId: 1, title: "TitleTitle", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
-        self.featureRequests.append(suggestion1)
-        self.searchResults.append(suggestion1)
-        
-        let suggestion2 = Suggestion.init(suggestionId: 2, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
-        self.featureRequests.append(suggestion2)
-        self.searchResults.append(suggestion2)
-        
-        let suggestion3 = Suggestion.init(suggestionId: 3, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
-        self.featureRequests.append(suggestion3)
-        self.searchResults.append(suggestion3)
-        
-        let suggestion4 = Suggestion.init(suggestionId: 1, title: "Title", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
-        self.featureRequests.append(suggestion4)
-        self.searchResults.append(suggestion4)
-        
-        let suggestion5 = Suggestion.init(suggestionId: 2, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
-        self.featureRequests.append(suggestion5)
-        self.searchResults.append(suggestion5)
-        
-        let suggestion6 = Suggestion.init(suggestionId: 3, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
-        self.featureRequests.append(suggestion6)
-        self.searchResults.append(suggestion6)
+        if let delegate = delegate {
+            let suggestions = delegate.suggestions()
+            self.featureRequests = suggestions
+            self.searchResults = self.featureRequests
+            self.tableView.reloadData()
+        }
     }
 }
 

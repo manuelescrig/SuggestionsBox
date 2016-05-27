@@ -7,14 +7,14 @@
 //
 
 
-struct Comment {
+public struct Comment {
     
     var commentId : Int
     var description: String
     var author: String
     var createdAt : NSDate
     
-    init(commentId : Int,
+    public init(commentId : Int,
          description: String,
          author: String,
          createdAt: NSDate) {

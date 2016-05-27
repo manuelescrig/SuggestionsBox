@@ -64,9 +64,6 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         self.tableView.tableFooterView = UIView()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         self.view.addSubview(self.tableView)
-      
-        // Get Data
-        self.getData()
     }
     
     
@@ -272,18 +269,5 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         let newCommentController = NewCommentController(nibName: nil,bundle: nil)
         let navigationBar = UINavigationController.init(rootViewController: newCommentController)
         self.presentViewController(navigationBar, animated: true, completion: nil)
-    }
-    
-    
-    // MARK: Data
-    
-    func getData() {
-        
-        let comment = Comment.init(commentId: 1, description: "Comment Description", author: "Manuel", createdAt: NSDate())
-        self.comments.append(comment)
-        self.comments.append(comment)
-        self.comments.append(comment)
-        self.tableView.reloadData()
-        
     }
 }
