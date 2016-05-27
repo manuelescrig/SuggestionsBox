@@ -6,8 +6,6 @@
 //
 //
 
-//import Firebase
-
 
 public struct SuggestionsBoxTheme {
     
@@ -95,8 +93,6 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-//        FIRApp.configure()
-
         // Content View
         self.view.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         
@@ -246,7 +242,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     
     func getData() {
         
-        let suggestion1 = Suggestion.init(suggestionId: 1, title: "Title", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
+        let suggestion1 = Suggestion.init(suggestionId: 1, title: "TitleTitle", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
         self.featureRequests.append(suggestion1)
         self.searchResults.append(suggestion1)
         

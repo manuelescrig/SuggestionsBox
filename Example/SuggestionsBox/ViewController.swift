@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
         print("viewDidLoad")
         
+
         // Title
         self.title = "SuggestionsBox"
         

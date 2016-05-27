@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="byF-jG-Fga">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Jha-lQ-9P1">
+            <objects>
+                <navigationController id="byF-jG-Fga" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="X7b-cS-vli">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.52156862745098043" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ewu-8n-6qh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rl1-zC-HKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="-207"/>
+        </scene>
+        <!--Firebase Storage-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Firebase Storage" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H8c-gN-cFS">
+                                <rect key="frame" x="39" y="185" width="334" height="80"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BWU-ep-gub"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNe-hA-Ajt">
+                                <rect key="frame" x="146" y="147" width="121" height="30"/>
+                                <state key="normal" title="Download Picture"/>
+                                <connections>
+                                    <segue destination="dTy-Zw-dam" kind="show" id="7Pz-m3-3O8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4V-CR-dck">
+                                <rect key="frame" x="127.5" y="105" width="160" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="sNC-60-gSB"/>
+                                    <constraint firstAttribute="height" constant="44" id="wNU-JV-wbH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapTakePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydh-qg-AYm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H8c-gN-cFS" firstAttribute="top" secondItem="kNe-hA-Ajt" secondAttribute="bottom" constant="8" symbolic="YES" id="1Js-Wg-uR1"/>
+                            <constraint firstItem="g4V-CR-dck" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Qp-IT-BxI"/>
+                            <constraint firstItem="kNe-hA-Ajt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J1A-pr-2Gg"/>
+                            <constraint firstItem="H8c-gN-cFS" firstAttribute="top" secondItem="g4V-CR-dck" secondAttribute="bottom" constant="36" id="eTa-N6-KkS"/>
+                            <constraint firstItem="g4V-CR-dck" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="ihG-zG-X5q"/>
+                            <constraint firstItem="H8c-gN-cFS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="19" id="lzf-7u-PQG"/>
+                            <constraint firstItem="kNe-hA-Ajt" firstAttribute="centerX" secondItem="H8c-gN-cFS" secondAttribute="centerX" id="yxb-X7-v9V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Firebase Storage Example" id="lX3-oi-C1r"/>
+                    <connections>
+                        <outlet property="downloadPicButton" destination="kNe-hA-Ajt" id="PEn-5w-PhG"/>
+                        <outlet property="takePicButton" destination="g4V-CR-dck" id="p2o-E3-Yit"/>
+                        <outlet property="urlTextView" destination="H8c-gN-cFS" id="zDa-Jb-SGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416" y="-207"/>
+        </scene>
+        <!--Download View Controller-->
+        <scene sceneID="gJX-AO-jHQ">
+            <objects>
+                <viewController id="dTy-Zw-dam" customClass="DownloadViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zic-HH-UQ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="8dZ-Gi-AVY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="27f-X7-nNm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YWo-Xi-oCi">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Rfx-OL-UUJ"/>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-6e-2KW">
+                                <rect key="frame" x="40" y="393" width="334" height="80"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Vwo-4z-5CO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ot-gz-oeU">
+                                <rect key="frame" x="87" y="99" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="mqu-MS-hmo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ot-gz-oeU" firstAttribute="leading" secondItem="27f-X7-nNm" secondAttribute="leadingMargin" constant="67" id="7AK-mg-fTR"/>
+                            <constraint firstItem="0ot-gz-oeU" firstAttribute="centerX" secondItem="27f-X7-nNm" secondAttribute="centerX" id="BmF-bl-NXr"/>
+                            <constraint firstItem="Ujz-6e-2KW" firstAttribute="centerX" secondItem="0ot-gz-oeU" secondAttribute="centerX" id="CcB-JZ-2u0"/>
+                            <constraint firstItem="Ujz-6e-2KW" firstAttribute="leading" secondItem="27f-X7-nNm" secondAttribute="leadingMargin" constant="20" id="UqV-dy-guU"/>
+                            <constraint firstItem="0ot-gz-oeU" firstAttribute="top" secondItem="zic-HH-UQ7" secondAttribute="bottom" constant="35" id="Waz-u8-Y1j"/>
+                            <constraint firstItem="8dZ-Gi-AVY" firstAttribute="top" secondItem="Ujz-6e-2KW" secondAttribute="bottom" constant="263" id="q3m-i4-iRr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="0ot-gz-oeU" id="5Ui-Hy-FqL"/>
+                        <outlet property="statusTextView" destination="Ujz-6e-2KW" id="9n2-zt-t3g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZ8-1l-AS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="-207"/>
+        </scene>
+    </scenes>
+</document>

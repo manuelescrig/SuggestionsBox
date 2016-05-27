@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		63879512063BE1BAEF4A6700 /* Pods_SuggestionsBox_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CE0C07D07D7C0D29A10E6F /* Pods_SuggestionsBox_Tests.framework */; };
+		C475C5511CF83A2E00D46D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C475C5501CF83A2E00D46D11 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		72CE0C07D07D7C0D29A10E6F /* Pods_SuggestionsBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuggestionsBox_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		856CD948BFEBB1B9D20DACA1 /* Pods-SuggestionsBox_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionsBox_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionsBox_Example/Pods-SuggestionsBox_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BD2DE86716CA6FBE9DCBA689 /* Pods-SuggestionsBox_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionsBox_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionsBox_Tests/Pods-SuggestionsBox_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C475C5501CF83A2E00D46D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3F80C289BCAC098E615D749 /* Pods-SuggestionsBox_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionsBox_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionsBox_Example/Pods-SuggestionsBox_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E97439E56F475022F4A581A0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F53E8916076A3D1BDCACB222 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C475C5501CF83A2E00D46D11 /* GoogleService-Info.plist */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				C475C5511CF83A2E00D46D11 /* GoogleService-Info.plist in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
