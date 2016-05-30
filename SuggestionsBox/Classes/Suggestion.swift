@@ -7,6 +7,7 @@
 //
 
 
+
 public struct Suggestion {
 
     var suggestionId: String
@@ -45,4 +46,9 @@ public struct Suggestion {
             return String(favorites.count) + " " + SuggestionsBoxTheme.detailFavoritesText
         }
     }
+}
+
+extension Suggestion: Equatable {}
+public func ==(lhs: Suggestion, rhs: Suggestion) -> Bool {
+    return lhs.suggestionId == rhs.suggestionId && lhs.title == rhs.title
 }

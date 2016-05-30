@@ -74,9 +74,10 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         // Get Data
         self.getData()
 
-//        if <#condition#> {
-//            <#code#>
-//        }
+        if let index = suggestion?.favorites.indexOf(SuggestionsBoxTheme.userId) {
+            favorite(self.navigationItem.rightBarButtonItem!)
+        }
+
     }
 
 

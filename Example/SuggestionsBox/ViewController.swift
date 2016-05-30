@@ -113,11 +113,18 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
 
     func suggestionFavorited(suggestion: Suggestion) {
         // Refresh online data
+
+        // Refresh local data
+        let index = self.featureRequests.indexOf(suggestion)
+        self.featureRequests[index!] = suggestion
     }
 
     func suggestionUnFavorited(suggestion: Suggestion) {
         // Refresh online data
-
+        
+        // Refresh local data
+        let index = self.featureRequests.indexOf(suggestion)
+        self.featureRequests[index!] = suggestion
     }
 
     // MARK: Data
