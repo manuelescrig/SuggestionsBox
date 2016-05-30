@@ -167,6 +167,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         // Button
         let saveButton = UIBarButtonItem.init(barButtonSystemItem: .Save, target: self, action: #selector(save(_:)))
         self.navigationItem.setRightBarButtonItem(saveButton, animated: false)
+        self.navigationItem.rightBarButtonItem?.enabled = false
 
         let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel(_:)))
         self.navigationItem.setLeftBarButtonItem(cancelButton, animated: false)
@@ -251,11 +252,17 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
     // MARK: TextViewCellDelegate
 
     func textDidChange(sender: TextViewCell) {
-
+        
         if sender.tag == 0 {
             titleText = sender.textView.text
         } else {
             descriptionText = sender.textView.text
+        }
+        
+        if titleText.characters.count > 3 && descriptionText.characters.count > 3 {
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        } else {
+            self.navigationItem.rightBarButtonItem?.enabled = false
         }
     }
 }

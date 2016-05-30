@@ -73,7 +73,7 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
     func suggestions() -> Array<Suggestion>
 
-    func commentsForSuggestionAtIndex(suggestionIndex: Int) -> Array<Comment>
+    func commentsForSuggestion(suggestion: Suggestion) -> Array<Comment>
 
     func newSuggestionAdded(newSuggestion: Suggestion)
 
@@ -203,10 +203,9 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
 
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let suggestion = searchResults[indexPath.row]
-        let reuseIdentifier = "cellIdentifier"
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell?
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellIdentifier") as UITableViewCell?
         if (cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: reuseIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cellIdentifier")
         }
         cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
@@ -226,15 +225,10 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.searchBar.resignFirstResponder()
 
-        if let delegate = delegate {
-            let comments = delegate.commentsForSuggestionAtIndex(indexPath.row)
-            let detailController = DetailController()
-            detailController.delegate = delegate
-            detailController.suggestion = searchResults[indexPath.row]
-            detailController.comments = comments
-            self.navigationController?.pushViewController(detailController, animated: true)
-        }
-
+        let detailController = DetailController()
+        detailController.delegate = delegate
+        detailController.suggestion = searchResults[indexPath.row]
+        self.navigationController?.pushViewController(detailController, animated: true)
     }
 
 
@@ -257,9 +251,11 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 
         if searchText.characters.count > 0 {
-            self.searchResults = self.featureRequests.filter {$0.title == searchText}
-            self.tableView.reloadData()
+            self.searchResults = self.featureRequests.filter {$0.title.containsString(searchText) || $0.description.containsString(searchText) }
+        } else {
+            self.searchResults = self.featureRequests
         }
+        self.tableView.reloadData()
     }
 
 
@@ -270,7 +266,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         if let delegate = delegate {
             let suggestions = delegate.suggestions()
             self.featureRequests = suggestions
-            self.searchResults = self.featureRequests
+            self.searchResults = self.featureRequests.sort({ $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
             self.tableView.reloadData()
         }
     }

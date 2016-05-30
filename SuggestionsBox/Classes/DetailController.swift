@@ -68,6 +68,13 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         self.view.addSubview(self.tableView)
     }
 
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Get Data
+        self.getData()
+    }
+
 
     // MARK: Layout Methods
 
@@ -94,7 +101,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         switch section {
         case 0:
-            return 5
+            return 6
         case 1:
             return self.comments.count
         case 2:
@@ -106,37 +113,47 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let commet = comments[0]
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath)
-        cell.selectionStyle = .None
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel!.textColor = SuggestionsBoxTheme.tableCellTitleTextColor
-        cell.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
-        cell.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
-
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellIdentifier") as UITableViewCell?
+        if (cell != nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cellIdentifier")
+        }
+        
+        cell!.selectionStyle = .None
+        cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
+        cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
+        cell!.textLabel!.textColor = SuggestionsBoxTheme.tableCellTitleTextColor
+        cell!.textLabel!.numberOfLines = 0
+        cell!.detailTextLabel?.textColor =  SuggestionsBoxTheme.tableCellDescriptionTextColor
+        cell!.detailTextLabel?.numberOfLines = 0
+        
         switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
-                cell.textLabel!.text = suggestion?.title
+                cell!.textLabel!.text = suggestion?.title
             } else if indexPath.row == 1 {
-                cell.textLabel!.text = suggestion?.description
+                cell!.textLabel!.text = suggestion?.description
             } else if indexPath.row == 2 {
-                cell.textLabel!.text = suggestion?.author
+                cell!.textLabel!.text = suggestion?.author
             } else if indexPath.row == 3 {
-                cell.textLabel!.text = suggestion?.dateString()
+                cell!.textLabel!.text = suggestion?.dateString()
+            } else if indexPath.row == 4 {
+                cell!.textLabel!.text = suggestion?.favoritesString()
             } else {
-                cell.textLabel!.text = suggestion?.favoritesString()
+                cell!.textLabel!.text = SuggestionsBoxTheme.detailNewCommentText
+                cell!.textLabel!.font = UIFont.boldSystemFontOfSize(18)
             }
         case 1:
-            cell.textLabel!.text = commet.description
-            cell.detailTextLabel?.text = String(commet.author)
+            let comment = comments[indexPath.row]
+            cell!.textLabel!.text = comment.description
+            cell!.detailTextLabel?.text = comment.author
+
         case 2:
-            cell.textLabel!.text = SuggestionsBoxTheme.detailDeleteText
+            cell!.textLabel!.text = SuggestionsBoxTheme.detailDeleteText
         default:
-            cell.textLabel!.text = ""
+            cell!.textLabel!.text = ""
         }
 
-        return cell
+        return cell!
     }
 
 
@@ -144,6 +161,10 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
+        if indexPath.section == 0 && indexPath.row == 5 {
+            self.add()
+        }
     }
 
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -160,42 +181,6 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         }
 
         return sectionName
-    }
-
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return 100
-        default:
-            return 0
-        }
-    }
-
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let result = UIView.init()
-
-        if tableView.isEqual(self.tableView) && section == 0 {
-
-            newCommentButton.titleLabel!.textAlignment = .Center
-            newCommentButton.titleLabel!.font = UIFont.boldSystemFontOfSize(16)
-            newCommentButton.layer.cornerRadius = 20
-            newCommentButton.layer.borderColor = UIColor.grayColor().CGColor
-            newCommentButton.layer.borderWidth = 1
-            newCommentButton.setTitle(SuggestionsBoxTheme.detailNewCommentText, forState: .Normal)
-            newCommentButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            newCommentButton.addTarget(self, action: #selector(DetailController.buttonHighlight(_:)), forControlEvents: .TouchDown)
-            newCommentButton.addTarget(self, action: #selector(DetailController.buttonNormal(_:)), forControlEvents: .TouchUpInside)
-            newCommentButton.addTarget(self, action: #selector(DetailController.buttonNormal(_:)), forControlEvents: .TouchUpOutside)
-            newCommentButton.addTarget(self, action: #selector(DetailController.buttonNormal(_:)), forControlEvents: .TouchCancel)
-            newCommentButton.addTarget(self, action: #selector(DetailController.add(_:)), forControlEvents: .TouchUpInside)
-            newCommentButton.clipsToBounds = true
-            newCommentButton.layer.masksToBounds = true
-
-            let resultFrame: CGRect = CGRectMake(0.0, 0.0, self.view.frame.size.width, newCommentButton.frame.size.height)
-            result.frame = resultFrame
-            result.addSubview(newCommentButton)
-        }
-        return result
     }
 
 
@@ -222,14 +207,13 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
     // MARK: UI Actions
 
     func favorite(sender: UIBarButtonItem) {
-        print("favorite")
 
         if isFavorite {
             // Add Button
             let shapeLayer: CAShapeLayer = CAShapeLayer()
             shapeLayer.fillColor = UIColor.clearColor().CGColor
             shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-            shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPointMake(14, 15)).CGPath
+            shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).CGPath
             let heart: UIButton = UIButton(type: .Custom)
             heart.showsTouchWhenHighlighted = false
             heart.layer.addSublayer(shapeLayer)
@@ -243,7 +227,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
             let shapeLayer: CAShapeLayer = CAShapeLayer()
             shapeLayer.fillColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
             shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-            shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPointMake(14, 15)).CGPath
+            shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).CGPath
             let heart: UIButton = UIButton(type: .Custom)
             heart.showsTouchWhenHighlighted = false
             heart.layer.addSublayer(shapeLayer)
@@ -255,23 +239,24 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-    func buttonHighlight(sender: UIButton) {
-        print("buttonHighlight")
-        sender.backgroundColor = UIColor.lightGrayColor()
-    }
 
-    func buttonNormal(sender: UIButton) {
-        print("buttonNormal")
-        sender.backgroundColor = UIColor.groupTableViewBackgroundColor()
-    }
-
-    func add(sender: UIBarButtonItem) {
-        print("add")
+    func add() {
 
         let newCommentController = NewCommentController(nibName: nil, bundle: nil)
         newCommentController.delegate = delegate
         newCommentController.suggestion = suggestion
         let navigationBar = UINavigationController.init(rootViewController: newCommentController)
         self.presentViewController(navigationBar, animated: true, completion: nil)
+    }
+
+    // MARK: Data
+
+    func getData() {
+
+        if let delegate = delegate {
+            self.comments =  delegate.commentsForSuggestion(suggestion!)
+            self.comments = self.comments.sort({ $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
+            self.tableView.reloadData()
+        }
     }
 }

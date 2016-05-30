@@ -42,7 +42,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         // Table View
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: "TextViewCell")
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
@@ -59,6 +59,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         // Button
         let saveButton = UIBarButtonItem.init(barButtonSystemItem: .Save, target: self, action: #selector(save(_:)))
         self.navigationItem.setRightBarButtonItem(saveButton, animated: false)
+        self.navigationItem.rightBarButtonItem?.enabled = false
 
         let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel(_:)))
         self.navigationItem.setLeftBarButtonItem(cancelButton, animated: false)
@@ -69,7 +70,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     func save(sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let comment = Comment.init(commentId: 1, description: description, author: SuggestionsBoxConfig.author, createdAt: NSDate())
+            let comment = Comment.init(commentId: 1, description: commentText, author: SuggestionsBoxConfig.author, createdAt: NSDate())
             delegate.newCommentForSuggestionAdded(suggestion!, newComment: comment)
         }
 
@@ -93,7 +94,8 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) as! TextViewCell
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("TextViewCell", forIndexPath: indexPath) as! TextViewCell
         cell.delegate = self
         cell.parentTableView = self.tableView
         cell.selectionStyle = .None
@@ -111,5 +113,11 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     func textDidChange(sender: TextViewCell) {
 
         commentText = sender.textView.text
+
+        if commentText.characters.count > 3 {
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        } else {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
 }
