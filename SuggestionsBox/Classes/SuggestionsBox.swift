@@ -79,9 +79,9 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
     func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment)
 
-    func suggestionFavoritedAtIndex(index: Int)
+    func suggestionFavorited(suggestion: Suggestion)
 
-    func suggestionUnFavoritedAtIndex(index: Int)
+    func suggestionUnFavorited(suggestion: Suggestion)
 
 }
 

@@ -100,18 +100,22 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
     }
 
     func newSuggestionAdded(newSuggestion: Suggestion) {
+        // Refresh online data
         self.featureRequests.append(newSuggestion)
     }
 
     func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment) {
+        // Refresh online data
         self.comments.append(newComment)
-    }
-
-    func suggestionFavoritedAtIndex(index: Int) {
 
     }
 
-    func suggestionUnFavoritedAtIndex(index: Int) {
+    func suggestionFavorited(suggestion: Suggestion) {
+        // Refresh online data
+    }
+
+    func suggestionUnFavorited(suggestion: Suggestion) {
+        // Refresh online data
 
     }
 

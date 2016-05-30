@@ -73,6 +73,10 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         // Get Data
         self.getData()
+        
+//        if <#condition#> {
+//            <#code#>
+//        }
     }
 
 
@@ -117,7 +121,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         if (cell != nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cellIdentifier")
         }
-        
+
         cell!.selectionStyle = .None
         cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
@@ -125,7 +129,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         cell!.textLabel!.numberOfLines = 0
         cell!.detailTextLabel?.textColor =  SuggestionsBoxTheme.tableCellDescriptionTextColor
         cell!.detailTextLabel?.numberOfLines = 0
-        
+
         switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
@@ -209,7 +213,14 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
     func favorite(sender: UIBarButtonItem) {
 
         if isFavorite {
-            // Add Button
+
+            suggestion?.favorites--;
+            self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Top)
+
+            if let delegate = delegate {
+                delegate.suggestionFavorited(suggestion!)
+            }
+            
             let shapeLayer: CAShapeLayer = CAShapeLayer()
             shapeLayer.fillColor = UIColor.clearColor().CGColor
             shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
@@ -224,6 +235,12 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
             self.isFavorite = false
 
         } else {
+
+            suggestion?.favorites++;
+            self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Bottom)
+            if let delegate = delegate {
+                delegate.suggestionUnFavorited(suggestion!)
+            }
             let shapeLayer: CAShapeLayer = CAShapeLayer()
             shapeLayer.fillColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
             shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
@@ -237,8 +254,8 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
             self.navigationItem.rightBarButtonItem = heartButtonItem
             self.isFavorite = true
         }
+        
     }
-
 
     func add() {
 
