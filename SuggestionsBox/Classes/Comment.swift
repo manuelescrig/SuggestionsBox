@@ -8,23 +8,23 @@
 
 
 public struct Comment {
-    
-    var commentId : Int
+
+    var commentId: Int
     var description: String
     var author: String
-    var createdAt : NSDate
-    
-    public init(commentId : Int,
+    var createdAt: NSDate
+
+    public init(commentId: Int,
          description: String,
          author: String,
          createdAt: NSDate) {
-        
+
         self.commentId = commentId
         self.description = description
         self.author = author
         self.createdAt  = createdAt
     }
-    
+
     func dateString() -> String {
         let format = SuggestionsBoxTheme.detailDateFormat
         let dateFormatter = NSDateFormatter()

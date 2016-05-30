@@ -9,20 +9,20 @@
 
 public struct Suggestion {
 
-    var suggestionId : Int
+    var suggestionId: Int
     var title: String
     var description: String
     var author: String
     var favorites: Int
-    var createdAt : NSDate
-    
-    public init(suggestionId : Int,
+    var createdAt: NSDate
+
+    public init(suggestionId: Int,
          title: String,
          description: String,
          author: String,
          favorites: Int,
          createdAt: NSDate) {
-        
+
         self.suggestionId = suggestionId
         self.title = title
         self.description = description
@@ -30,14 +30,14 @@ public struct Suggestion {
         self.favorites = favorites
         self.createdAt  = createdAt
     }
-    
+
     func dateString() -> String {
         let format = SuggestionsBoxTheme.detailDateFormat
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.stringFromDate(createdAt)
     }
-    
+
     func favoritesString() -> String {
         if favorites == 1 {
             return String(favorites) + " " + SuggestionsBoxTheme.detailFavoriteText

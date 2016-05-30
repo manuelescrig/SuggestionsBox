@@ -103,11 +103,11 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
     }
     
     func newSuggestionAdded(newSuggestion: Suggestion) {
-        
+        self.featureRequests.append(newSuggestion)
     }
     
     func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment) {
-        
+        self.comments.append(newComment)
     }
     
     func suggestionFavoritedAtIndex(index: Int) {
