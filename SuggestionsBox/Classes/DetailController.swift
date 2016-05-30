@@ -9,7 +9,7 @@
 
 class DetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var delegate: SuggestionsBoxDelegate?
+    weak var delegate: SuggestionsBoxDelegate?
 
     var tableView: UITableView = UITableView.init()
     var newCommentButton: UIButton = UIButton.init()

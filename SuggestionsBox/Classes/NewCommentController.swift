@@ -9,7 +9,7 @@
 
 class NewCommentController: UITableViewController, TextViewCellDelegate {
 
-    var delegate: SuggestionsBoxDelegate?
+    weak var delegate: SuggestionsBoxDelegate?
 
     var commentText = String()
     var suggestion: Suggestion?

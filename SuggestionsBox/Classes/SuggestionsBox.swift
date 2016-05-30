@@ -88,7 +88,7 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
 public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    public var delegate: SuggestionsBoxDelegate?
+    public weak var delegate: SuggestionsBoxDelegate?
 
     var tableView: UITableView = UITableView.init()
     var searchBar: UISearchBar = UISearchBar.init()

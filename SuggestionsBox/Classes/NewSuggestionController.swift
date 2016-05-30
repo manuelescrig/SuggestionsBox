@@ -118,7 +118,7 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
 // MARK: NewSuggestionController
 class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextViewCellDelegate {
 
-    var delegate: SuggestionsBoxDelegate?
+    weak var delegate: SuggestionsBoxDelegate?
 
     var titleText = String()
     var descriptionText = String()
