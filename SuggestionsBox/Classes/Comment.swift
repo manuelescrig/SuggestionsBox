@@ -9,19 +9,22 @@
 
 public struct Comment {
 
-    var commentId: Int
+    var suggestionId: String
+    var commentId: String
     var description: String
-    var author: String
+    var user: String
     var createdAt: NSDate
 
-    public init(commentId: Int,
-         description: String,
-         author: String,
-         createdAt: NSDate) {
+    public init(suggestionId: String,
+                commentId: String,
+                description: String,
+                user: String,
+                createdAt: NSDate) {
 
+        self.suggestionId = suggestionId
         self.commentId = commentId
         self.description = description
-        self.author = author
+        self.user = user
         self.createdAt  = createdAt
     }
 

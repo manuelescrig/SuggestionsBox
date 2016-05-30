@@ -179,7 +179,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
     func save(sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let suggestion = Suggestion.init(suggestionId: 1, title: titleText, description: descriptionText, author: SuggestionsBoxConfig.author, favorites: 0, createdAt: NSDate())
+            let suggestion = Suggestion.init(suggestionId: "1", title: titleText, description: descriptionText, user: SuggestionsBoxTheme.user, favorites: [], createdAt: NSDate())
             delegate.newSuggestionAdded(suggestion)
         }
 
@@ -252,13 +252,13 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
     // MARK: TextViewCellDelegate
 
     func textDidChange(sender: TextViewCell) {
-        
+
         if sender.tag == 0 {
             titleText = sender.textView.text
         } else {
             descriptionText = sender.textView.text
         }
-        
+
         if titleText.characters.count > 3 && descriptionText.characters.count > 3 {
             self.navigationItem.rightBarButtonItem?.enabled = true
         } else {

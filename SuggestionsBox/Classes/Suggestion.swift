@@ -9,24 +9,24 @@
 
 public struct Suggestion {
 
-    var suggestionId: Int
+    var suggestionId: String
     var title: String
     var description: String
-    var author: String
-    var favorites: Int
+    var user: String
     var createdAt: NSDate
+    var favorites = [String]()
 
-    public init(suggestionId: Int,
+    public init(suggestionId: String,
          title: String,
          description: String,
-         author: String,
-         favorites: Int,
+         user: String,
+         favorites: [String],
          createdAt: NSDate) {
 
         self.suggestionId = suggestionId
         self.title = title
         self.description = description
-        self.author = author
+        self.user = user
         self.favorites = favorites
         self.createdAt  = createdAt
     }
@@ -39,10 +39,10 @@ public struct Suggestion {
     }
 
     func favoritesString() -> String {
-        if favorites == 1 {
-            return String(favorites) + " " + SuggestionsBoxTheme.detailFavoriteText
+        if favorites.count == 1 {
+            return String(favorites.count) + " " + SuggestionsBoxTheme.detailFavoriteText
         } else {
-            return String(favorites) + " " + SuggestionsBoxTheme.detailFavoritesText
+            return String(favorites.count) + " " + SuggestionsBoxTheme.detailFavoritesText
         }
     }
 }

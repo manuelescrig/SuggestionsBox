@@ -73,7 +73,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         // Get Data
         self.getData()
-        
+
 //        if <#condition#> {
 //            <#code#>
 //        }
@@ -94,7 +94,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
-        if SuggestionsBoxConfig.admin {
+        if SuggestionsBoxTheme.admin {
             return 3
         } else {
             return 2
@@ -137,7 +137,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
             } else if indexPath.row == 1 {
                 cell!.textLabel!.text = suggestion?.description
             } else if indexPath.row == 2 {
-                cell!.textLabel!.text = suggestion?.author
+                cell!.textLabel!.text = suggestion?.user
             } else if indexPath.row == 3 {
                 cell!.textLabel!.text = suggestion?.dateString()
             } else if indexPath.row == 4 {
@@ -149,7 +149,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         case 1:
             let comment = comments[indexPath.row]
             cell!.textLabel!.text = comment.description
-            cell!.detailTextLabel?.text = comment.author
+            cell!.detailTextLabel?.text = comment.user
 
         case 2:
             cell!.textLabel!.text = SuggestionsBoxTheme.detailDeleteText
@@ -214,13 +214,14 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         if isFavorite {
 
-            suggestion?.favorites--;
+            let index = suggestion?.favorites.indexOf(SuggestionsBoxTheme.userId)
+            suggestion?.favorites.removeAtIndex(index!)
             self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Top)
 
             if let delegate = delegate {
                 delegate.suggestionFavorited(suggestion!)
             }
-            
+
             let shapeLayer: CAShapeLayer = CAShapeLayer()
             shapeLayer.fillColor = UIColor.clearColor().CGColor
             shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
@@ -236,7 +237,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         } else {
 
-            suggestion?.favorites++;
+            suggestion?.favorites.append(SuggestionsBoxTheme.userId)
             self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Bottom)
             if let delegate = delegate {
                 delegate.suggestionUnFavorited(suggestion!)
@@ -254,7 +255,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
             self.navigationItem.rightBarButtonItem = heartButtonItem
             self.isFavorite = true
         }
-        
+
     }
 
     func add() {

@@ -71,7 +71,9 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
 
         let suggestionsBox = SuggestionsBox()
         suggestionsBox.delegate = self
-        SuggestionsBoxTheme.name = "SuggestionsBox"
+        SuggestionsBoxTheme.user = "Manuel"
+        SuggestionsBoxTheme.appName = "SuggestionsBox"
+        SuggestionsBoxTheme.title = "SuggestionsBox"
         SuggestionsBoxTheme.headerText = "Suggest a new feature, tweak, improvement... We'd love to hear your sugestions!"
         SuggestionsBoxTheme.footerText = "Powered by SuggestionsBox"
         SuggestionsBoxTheme.newSuggestionFooterText = "Powered by SuggestionsBox"
@@ -81,8 +83,7 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         SuggestionsBoxTheme.tableCellBackgroundColor = UIColor.whiteColor()
         SuggestionsBoxTheme.tableCellTitleTextColor = UIColor.blackColor()
         SuggestionsBoxTheme.tableCellDescriptionTextColor = UIColor.lightGrayColor()
-        SuggestionsBoxConfig.author = "Manuel"
-        SuggestionsBoxConfig.title = "SuggestionsBox"
+
 
         let navigationBar = UINavigationController.init(rootViewController: suggestionsBox)
         self.presentViewController(navigationBar, animated: true, completion: nil)
@@ -123,25 +124,25 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
 
     func getData() {
 
-        let suggestion1 = Suggestion.init(suggestionId: 1, title: "TitleTitle", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
+        let suggestion1 = Suggestion.init(suggestionId: "1", title: "TitleTitle", description: "Description", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion1)
 
-        let suggestion2 = Suggestion.init(suggestionId: 2, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
+        let suggestion2 = Suggestion.init(suggestionId: "2", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion2)
 
-        let suggestion3 = Suggestion.init(suggestionId: 3, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
+        let suggestion3 = Suggestion.init(suggestionId: "3", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion3)
 
-        let suggestion4 = Suggestion.init(suggestionId: 1, title: "Title", description: "Description", author: "Manuel", favorites: 5, createdAt: NSDate())
+        let suggestion4 = Suggestion.init(suggestionId: "4", title: "Title", description: "Description", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion4)
 
-        let suggestion5 = Suggestion.init(suggestionId: 2, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
+        let suggestion5 = Suggestion.init(suggestionId: "2", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion5)
 
-        let suggestion6 = Suggestion.init(suggestionId: 3, title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", author: "Manuel Escrig Ventura", favorites: 1, createdAt: NSDate())
+        let suggestion6 = Suggestion.init(suggestionId: "3", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion6)
 
-        let comment = Comment.init(commentId: 1, description: "Comment Description", author: "Manuel", createdAt: NSDate())
+        let comment = Comment.init(suggestionId: "1", commentId: "1", description: "Comment Description", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment)
         self.comments.append(comment)
     }

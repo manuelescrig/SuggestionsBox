@@ -10,7 +10,8 @@
 public struct SuggestionsBoxTheme {
 
     // Strings
-    public static var name: String = ""
+    public static var appName: String = "SuggestionsBox Example"
+    public static var title: String = ""
     public static var headerText: String = ""
     public static var footerText: String = ""
 
@@ -58,13 +59,10 @@ public struct SuggestionsBoxTheme {
     public static var sizeTableViewFooterViewHeight: CGFloat = 80
     public static var sizeTableViewCellDefaultHeight: CGFloat = 44
     public static var sizeTableViewCommentButtonViewPadding: CGFloat = 20
-}
 
-public struct SuggestionsBoxConfig {
-
-    public static var title: String = "SuggestionsBox"
-    public static var appName: String = "SuggestionsBox Example"
-    public static var author: String = "Anonymous"
+    // User
+    public static var user: String = "Anonymous"
+    public static var userId: String = ""
     public static var admin: Bool = false
 
 }
@@ -122,7 +120,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController!.navigationBar.tintColor = SuggestionsBoxTheme.navigationBarButtonColor
 
         // Title
-        self.title = SuggestionsBoxTheme.name
+        self.title = SuggestionsBoxTheme.title
 
         // Button
         let addButton = UIBarButtonItem.init(barButtonSystemItem: .Add, target: self, action: #selector(add(_:)))

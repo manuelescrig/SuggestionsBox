@@ -70,7 +70,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     func save(sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let comment = Comment.init(commentId: 1, description: commentText, author: SuggestionsBoxConfig.author, createdAt: NSDate())
+            let comment = Comment.init(suggestionId: (suggestion?.suggestionId)!, commentId: "1", description: commentText, user: SuggestionsBoxTheme.user, createdAt: NSDate())
             delegate.newCommentForSuggestionAdded(suggestion!, newComment: comment)
         }
 
