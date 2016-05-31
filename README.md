@@ -22,6 +22,8 @@ An **iOS library** to aggregate **users feedback** about suggestions, features o
 - [x] Customizable colors and style
 - [x] Localizable
 
+<p align="center"><img src="https://github.com/manuelescrig/SuggestionsBox/blob/master/Images/SuggestionsBox.gif?raw=true"></p>
+
 ## Demo App
 
 Run the demo app and play with it!
