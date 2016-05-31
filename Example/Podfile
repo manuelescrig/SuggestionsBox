@@ -2,7 +2,6 @@ use_frameworks!
 
 target 'SuggestionsBox_Example' do
   pod 'SuggestionsBox', :path => '../'
-  pod 'Firebase'
 
   target 'SuggestionsBox_Tests' do
     inherit! :search_paths
