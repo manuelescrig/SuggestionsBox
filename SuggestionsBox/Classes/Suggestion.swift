@@ -10,12 +10,12 @@
 
 public struct Suggestion {
 
-    var suggestionId: String
-    var title: String
-    var description: String
-    var user: String
-    var createdAt: NSDate
-    var favorites = [String]()
+    public var suggestionId: String
+    public var title: String
+    public var description: String
+    public var user: String
+    public var createdAt: NSDate
+    public var favorites = [String]()
 
     public init(suggestionId: String,
          title: String,
@@ -32,14 +32,14 @@ public struct Suggestion {
         self.createdAt  = createdAt
     }
 
-    func dateString() -> String {
+    public func dateString() -> String {
         let format = SuggestionsBoxTheme.detailDateFormat
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.stringFromDate(createdAt)
     }
 
-    func favoritesString() -> String {
+    public func favoritesString() -> String {
         if favorites.count == 1 {
             return String(favorites.count) + " " + SuggestionsBoxTheme.detailFavoriteText
         } else {

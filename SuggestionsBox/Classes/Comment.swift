@@ -9,11 +9,11 @@
 
 public struct Comment {
 
-    var suggestionId: String
-    var commentId: String
-    var description: String
-    var user: String
-    var createdAt: NSDate
+    public var suggestionId: String
+    public var commentId: String
+    public var description: String
+    public var user: String
+    public var createdAt: NSDate
 
     public init(suggestionId: String,
                 commentId: String,
@@ -28,7 +28,7 @@ public struct Comment {
         self.createdAt  = createdAt
     }
 
-    func dateString() -> String {
+    public func dateString() -> String {
         let format = SuggestionsBoxTheme.detailDateFormat
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = format
