@@ -324,12 +324,12 @@
 		2E15161416F5CC087044B251DC03657D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4F5CCE3CF0A96480AFF1E2052841C632 /* Comment.swift */,
+				4D64434285D0FCF0D92D144052075E2C /* SuggestionsBox.swift */,
 				6FBC5D57817EEAA69333FF1205673C77 /* DetailController.swift */,
 				3CA9FB0C39200CCA18F0601FEB393DD2 /* NewCommentController.swift */,
 				6E809FFEBA27E3C69E80CE46332376D4 /* NewSuggestionController.swift */,
 				0A915D1D709599160CCBEF242DD08989 /* Suggestion.swift */,
-				4D64434285D0FCF0D92D144052075E2C /* SuggestionsBox.swift */,
+				4F5CCE3CF0A96480AFF1E2052841C632 /* Comment.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

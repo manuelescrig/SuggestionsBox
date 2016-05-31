@@ -9,10 +9,11 @@
 
 An **iOS library** to aggregate **users feedback** about suggestions, features or comments in order to help you build a **better product**. 
 
-## Benefits
+## Why SuggestionsBox?
 - [x] Aggregates customer feedback
 - [x] Let your customer decide 
 - [x] Build the most voted suggestion
+- [x] Build a better product
 
 ## Features
 - [x] List and add new suggestions
@@ -24,7 +25,7 @@ An **iOS library** to aggregate **users feedback** about suggestions, features o
 ## Demo App
 
 Run the demo app and play with it!
-[Demo App](https://appetize.io/app/y5mq0egpmtvvj6e7up8qg07qjg?device=iphone6splus&scale=50&orientation=portrait&osVersion=9.3&deviceColor=white)
+[Demo App](https://appetize.io/app/6e14g9b61qd10dh4jq698vz44m?device=iphone6splus&scale=50&orientation=portrait&osVersion=9.3&deviceColor=white)
 
 ## Demo Project
 

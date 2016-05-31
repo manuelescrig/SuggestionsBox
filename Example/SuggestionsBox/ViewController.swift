@@ -83,7 +83,8 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         SuggestionsBoxTheme.tableCellBackgroundColor = UIColor.whiteColor()
         SuggestionsBoxTheme.tableCellTitleTextColor = UIColor.blackColor()
         SuggestionsBoxTheme.tableCellDescriptionTextColor = UIColor.lightGrayColor()
-
+        SuggestionsBoxTheme.navigationBarBackgroundColor = UIColor(red:19/255.0, green:100/255.0, blue:155/255.0, alpha: 1.0)
+        
         let navigationBar = UINavigationController.init(rootViewController: suggestionsBox)
         self.presentViewController(navigationBar, animated: true, completion: nil)
 

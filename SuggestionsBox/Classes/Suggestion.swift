@@ -7,7 +7,6 @@
 //
 
 
-
 public struct Suggestion {
 
     public var suggestionId: String
