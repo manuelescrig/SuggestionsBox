@@ -1,13 +1,13 @@
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15174018/cfd2f16c-175f-11e6-9a15-4708166834db.png"></p>
 
 # SuggestionsBox
-*An **iOS library** to aggregate **users feedback** about suggestions, features or comments in order to help you build a **better product.*** 
-
 [![CI Status](http://img.shields.io/travis/Manuel Escrig Ventura/SuggestionsBox.svg?style=flat)](https://travis-ci.org/Manuel Escrig Ventura/SuggestionsBox)
 [![Version](https://img.shields.io/cocoapods/v/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![License](https://img.shields.io/cocoapods/l/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Platform](https://img.shields.io/cocoapods/p/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Language](https://img.shields.io/badge/language-swift-oragne.svg?style=flat)](https://developer.apple.com/swift)
+
+An **iOS library** to aggregate **users feedback** about suggestions, features or comments in order to help you build a **better product**. 
 
 ## Benefits
 - [x] Aggregates customer feedback
