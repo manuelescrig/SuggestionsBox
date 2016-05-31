@@ -97,6 +97,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     var featureRequests = [Suggestion]()
     var searchResults = [Suggestion]()
 
+    let cellIdentifier = "TextViewCell"
 
     // MARK: View Lyfe Cylce
 
@@ -138,7 +139,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.view.addSubview(self.tableView)
 
         // SearchBar
@@ -201,9 +202,9 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
 
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let suggestion = searchResults[indexPath.row]
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cellIdentifier") as UITableViewCell?
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell?
         if (cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cellIdentifier")
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
         cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor

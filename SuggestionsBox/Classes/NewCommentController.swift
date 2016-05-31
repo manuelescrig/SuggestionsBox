@@ -15,6 +15,8 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     var suggestion: Suggestion?
     var footerLabel: UILabel = UILabel.init()
 
+    let cellIdentifier = "TextViewCell"
+
     // MARK: View Lyfe Cylce
 
     required convenience init(coder aDecoder: NSCoder) {
@@ -42,7 +44,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         // Table View
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: "TextViewCell")
+        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
@@ -70,7 +72,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
     func save(sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let comment = Comment.init(suggestionId: (suggestion?.suggestionId)!, commentId: "1", description: commentText, user: SuggestionsBoxTheme.user, createdAt: NSDate())
+            let comment = Comment.init(suggestionId: (suggestion?.suggestionId)!, commentId: NewSuggestionController.randomStringWithLength(12), description: commentText, user: SuggestionsBoxTheme.user, createdAt: NSDate())
             delegate.newCommentForSuggestionAdded(suggestion!, newComment: comment)
         }
 
@@ -95,7 +97,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextViewCell", forIndexPath: indexPath) as! TextViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TextViewCell
         cell.delegate = self
         cell.parentTableView = self.tableView
         cell.selectionStyle = .None

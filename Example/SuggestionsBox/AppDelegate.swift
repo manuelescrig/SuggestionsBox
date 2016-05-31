@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
 
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
+
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barTintColor =  UIColor(red:19/255.0, green:100/255.0, blue:155/255.0, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
                                                             NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 19)!]
         UINavigationBar.appearance().tintColor =  UIColor.whiteColor()
-        
+
         return true
     }
 
@@ -53,4 +53,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

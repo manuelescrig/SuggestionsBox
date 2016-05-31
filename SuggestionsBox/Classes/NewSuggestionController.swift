@@ -124,6 +124,8 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
     var descriptionText = String()
     var footerLabel: UILabel = UILabel.init()
 
+    let cellIdentifier = "TextViewCell"
+
     // MARK: View Lyfe Cycle
 
     required convenience init(coder aDecoder: NSCoder) {
@@ -148,7 +150,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         // Table View
         self.tableView.estimatedRowHeight = 34 // Default UITableViewCell Height
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: "TextViewCell")
+        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
 
@@ -179,7 +181,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
     func save(sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let suggestion = Suggestion.init(suggestionId: "1", title: titleText, description: descriptionText, user: SuggestionsBoxTheme.user, favorites: [], createdAt: NSDate())
+            let suggestion = Suggestion.init(suggestionId: NewSuggestionController.randomStringWithLength(12), title: titleText, description: descriptionText, user: SuggestionsBoxTheme.user, favorites: [], createdAt: NSDate())
             delegate.newSuggestionAdded(suggestion)
         }
 
@@ -208,7 +210,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextViewCell", forIndexPath: indexPath) as! TextViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TextViewCell
         cell.parentTableView = self.tableView
         cell.selectionStyle = .None
 
@@ -264,5 +266,22 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         } else {
             self.navigationItem.rightBarButtonItem?.enabled = false
         }
+    }
+
+    // MARK: Helper
+
+    static func randomStringWithLength (len: Int) -> String {
+
+        let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+        var randomString: NSMutableString = NSMutableString(capacity: len)
+
+        for (var i=0; i < len; i++) {
+            var length = UInt32 (letters.length)
+            var rand = arc4random_uniform(length)
+            randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        }
+
+        return randomString as String
     }
 }

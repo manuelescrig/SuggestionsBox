@@ -121,7 +121,7 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
 
     func suggestionUnFavorited(suggestion: Suggestion) {
         // Refresh online data
-        
+
         // Refresh local data
         let index = self.featureRequests.indexOf(suggestion)
         self.featureRequests[index!] = suggestion
@@ -150,7 +150,6 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         self.featureRequests.append(suggestion6)
 
         let comment = Comment.init(suggestionId: "1", commentId: "1", description: "Comment Description", user: "Manuel", createdAt: NSDate())
-        self.comments.append(comment)
         self.comments.append(comment)
     }
 }
