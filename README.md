@@ -10,11 +10,12 @@ An iOS library to aggregate users feedback about suggestions, features or commen
 [![Language](https://img.shields.io/badge/language-swift-oragne.svg?style=flat)](https://developer.apple.com/swift)
 
 ## Features
-- [x] Customizable contacts cells
-- [x] Customizable contact items cells
-- [x] Different sizes and responsive design
-- [x] Multiple delegate methods
-
+- [x] Aggregates customer feedback
+- [x] Let your customer decide 
+- [x] Build the most voted suggestion
+- [x] Search inside Titles and Descriptions
+- [x] Customizable colors and style
+- [x] Localizable
 
 ## Demo App
 
@@ -56,11 +57,11 @@ $ pod install
 ```
 
 ###  Installation Manually
-To integrate MEVHorizontalContacts into your Xcode project manually, just include the filest from [/Pod/Classes/](https://github.com/manuelescrig/MEVHorizontalContacts/tree/master/MEVHorizontalContacts/Classes) folder in your App’s Xcode project.
+To integrate SuggestionsBox into your Xcode project manually, just include the filest from [/Pod/Classes/](https://github.com/manuelescrig/MEVHorizontalContacts/tree/master/SuggestionsBox/Classes) folder in your App’s Xcode project.
 
 Then, import the following file your classes:
-```objc
-#import "MEVHorizontalContacts.h"
+```swift
+import SuggestionsBox
 ```
 
 ## Quick Guide
@@ -69,154 +70,80 @@ Then, import the following file your classes:
 
 ###### 1. Import class
 
-```objective-c
-#import "MEVHorizontalContacts.h"
+```swift
+import SuggestionsBox
 ```
 
-###### 2. Add Datasource and Delegate protocols.
+###### 2. Add Delegate protocol.
 
-```objective-c
-@interface ViewController () <MEVHorizontalContactsDataSource, MEVHorizontalContactsDelegate>
-@property (nonatomic, strong) MEVHorizontalContacts *horizontalContacts;
-@end
+```swift
+class ViewController: UIViewController, SuggestionsBoxDelegate {
+}
 ```
 
-###### 3. Create, initialize and add MEVHorizontalContacts view.
+###### 3. Create, initialize and add SuggestionsBox.
 
-```objective-c
-_horizontalContacts = [MEVHorizontalContacts new];
-_horizontalContacts.backgroundColor = [UIColor whiteColor];
-_horizontalContacts.dataSource = self;
-_horizontalContacts.delegate = self;
-[self addSubview:_horizontalContacts];
-[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[horizontalContacts]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"horizontalContacts" : _horizontalContacts}]];
-[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[horizontalContacts]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:@{@"horizontalContacts" : _horizontalContacts}]];
-```
+```swift
+let suggestionsBox = SuggestionsBox()
+suggestionsBox.delegate = self
+SuggestionsBoxTheme.user = "Manuel"
+SuggestionsBoxTheme.appName = "SuggestionsBox"
+SuggestionsBoxTheme.title = "SuggestionsBox"
+SuggestionsBoxTheme.headerText = "Suggest a new feature, tweak, improvement... We'd love to hear your sugestions!"
+SuggestionsBoxTheme.footerText = "Powered by SuggestionsBox"
+SuggestionsBoxTheme.newSuggestionFooterText = "Powered by SuggestionsBox"
+SuggestionsBoxTheme.newCommentFooterText = "Powered by SuggestionsBox"
+SuggestionsBoxTheme.navigationBarHeartColor = UIColor.redColor()
+SuggestionsBoxTheme.tableSeparatorColor = UIColor.groupTableViewBackgroundColor()
+SuggestionsBoxTheme.tableCellBackgroundColor = UIColor.whiteColor()
+SuggestionsBoxTheme.tableCellTitleTextColor = UIColor.blackColor()
+SuggestionsBoxTheme.tableCellDescriptionTextColor = UIColor.lightGrayColor()
 
-###### 4. Implement Datasource Methods
-
-```objective-c
-#pragma mark - MEVHorizontalContactsDataSource Methods
-
-- (NSInteger)numberOfContacts;
-- (NSInteger)numberOfItemsAtContactIndex:(NSInteger)index;
-- (MEVHorizontalContactsCell *)contactAtIndex:(NSInteger)index;
-- (MEVHorizontalContactsCell *)item:(NSInteger)item atContactIndex:(NSInteger)index;
-- (UIEdgeInsets)horizontalContactsInsets;
-- (NSInteger)horizontalContactsSpacing;
+let navigationBar = UINavigationController.init(rootViewController: suggestionsBox)
+self.presentViewController(navigationBar, animated: true, completion: nil)
 
 ```
 
-###### 5. Implement Delegate Methods
+###### 4. Implement Delegate Methods
 
-```objective-c
-#pragma mark - MEVHorizontalContactsDelegate Methods
-
-- (void)contactSelectedAtIndex:(NSInteger)index;
-- (void)item:(NSInteger)item selectedAtContactIndex:(NSInteger)index;
-
-```
-
-### Example
-
-###### Customization 1
-
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15117532/42b3110c-1608-11e6-81ce-36a493962c8b.gif" align="center" height="78" width="332" ></p>
-
-```objective-c
-- (MEVHorizontalContactsCell *)contactAtIndex:(NSInteger)index {
-    MEVHorizontalContactsCell *cell = [_horizontalContacts dequeueReusableContactCellForIndex:index];
-    [cell.imageView setImage:[UIImage imageNamed:[self getImageNameAtIndex:index]]];
-    [cell.imageView.layer setBorderColor:[UIColor colorWithRed:34/255.0f green:167/255.0f blue:240/255.0f alpha:1].CGColor];
-    [cell.imageView.layer setBorderWidth:1.0f];
-    [cell.label setText:[self getUserNameAtIndex:index]];
-    [cell.label setFont:[UIFont boldSystemFontOfSize:12.0f]];
-    return cell;
+```swift
+// MARK : SuggestionsBoxDelegate Methods
+  
+func suggestions() -> Array<Suggestion> {
+    return self.featureRequests
 }
 
-- (MEVHorizontalContactsCell *)item:(NSInteger)item atContactIndex:(NSInteger)index {
+func commentsForSuggestion(suggestion: Suggestion) -> Array<Comment> {
+    return self.comments.filter({ $0.suggestionId == suggestion.suggestionId })
+}
 
-    UIImage *image;
-    NSString *labelText;
-    switch (item) {
-        case 0:
-            labelText = @"Call";
-            image = [UIImage imageNamed:@"actionCall"];
-            break;
-        case 1:
-            labelText = @"Email";
-            image = [UIImage imageNamed:@"actionEmail"];
-            break;
-        case 2:
-            labelText = @"Message";
-            image = [UIImage imageNamed:@"actionMessage"];
-            break;
-        default:
-            labelText = @"Call";
-            image = [UIImage imageNamed:@"actionCall"];
-            break;
-    }
-    
-    MEVHorizontalContactsCell *cell = [_horizontalContacts dequeueReusableItemCellForIndex:index];
-    [cell.imageView setImage:image];
-    [cell.imageView setTintColor:[UIColor colorWithRed:34/255.0f green:167/255.0f blue:240/255.0f alpha:1]];
-    [cell.imageView.layer setBorderColor:[UIColor colorWithRed:34/255.0f green:167/255.0f blue:240/255.0f alpha:1].CGColor];
-    [cell.imageView.layer setBorderWidth:1.0f];
-    [cell.label setText:labelText];
-    [cell.label setFont:[UIFont boldSystemFontOfSize:10.0f]];
+func newSuggestionAdded(newSuggestion: Suggestion) {
+    // Refresh online data
+    self.featureRequests.append(newSuggestion)
+}
 
-    return cell;
+func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment) {
+    // Refresh online data
+    self.comments.append(newComment)
+}
+
+func suggestionFavorited(suggestion: Suggestion) {
+    // Refresh online data
+
+    // Refresh local data
+    let index = self.featureRequests.indexOf(suggestion)
+    self.featureRequests[index!] = suggestion
+}
+
+func suggestionUnFavorited(suggestion: Suggestion) {
+    // Refresh online data
+
+    // Refresh local data
+    let index = self.featureRequests.indexOf(suggestion)
+    self.featureRequests[index!] = suggestion
 }
 
 ```
-
-
-###### Customization 2
-
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15117199/c853d546-1606-11e6-924a-15e8dcd0e709.gif" align="center"  height="97" width="332" ></p>
-
-```objective-c
-- (MEVHorizontalContactsCell *)contactAtIndex:(NSInteger)index {
-    MEVHorizontalContactsCell *cell = [_horizontalContacts dequeueReusableContactCellForIndex:index];
-    [cell.imageView setImage:[UIImage imageNamed:[self getImageNameAtIndex:index]]];
-    [cell.label setText:[self getUserNameAtIndex:index]];
-    return cell;
-}
-
-- (MEVHorizontalContactsCell *)item:(NSInteger)item atContactIndex:(NSInteger)index {
-    
-    UIImage *image;
-    NSString *labelText;
-    switch (item) {
-        case 0:
-            labelText = @"Call";
-            image = [UIImage imageNamed:@"actionCall"];
-            break;
-        case 1:
-            labelText = @"Email";
-            image = [UIImage imageNamed:@"actionEmail"];
-            break;
-        case 2:
-            labelText = @"Message";
-            image = [UIImage imageNamed:@"actionMessage"];
-            break;
-        default:
-            labelText = @"Call";
-            image = [UIImage imageNamed:@"actionCall"];
-            break;
-    }
-    
-    MEVHorizontalContactsCell *cell = [_horizontalContacts dequeueReusableItemCellForIndex:index];
-    [cell.imageView setImage:image];
-    [cell.imageView setBackgroundColor:[UIColor colorWithRed:34/255.0f green:167/255.0f blue:240/255.0f alpha:1]];
-    [cell.imageView setTintColor:[UIColor whiteColor]];
-    [cell.label setText:labelText];
-    [cell.label setTextColor:[UIColor colorWithRed:34/255.0f green:167/255.0f blue:240/255.0f alpha:1]];
-    return cell;
-}
-
-```
-
 
 ## Roadmap
 - [x] CocoaPods support
@@ -225,11 +152,11 @@ _horizontalContacts.delegate = self;
 
 ## Change Log
 
-See [Changelog.md](https://github.com/manuelescrig/MEVHorizontalContacts/blob/master/CHANGELOG.md)
+See [Changelog.md](https://github.com/manuelescrig/SuggestionsBox/blob/master/CHANGELOG.md)
 
 ## Author
 
-- Manuel Escrig Ventura, [@manuelescrig](https://www.twitter.com/manuelescrig/)
+- Created and maintained by Manuel Escrig Ventura, [@manuelescrig](https://www.twitter.com/manuelescrig/)
 - Email [manuel@ventura.media](mailto:manuel@ventura.media)
 - Portfolio [http://ventura.media](http://ventura.media)
 
