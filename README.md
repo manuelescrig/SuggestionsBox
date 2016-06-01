@@ -157,10 +157,6 @@ func suggestionUnFavorited(suggestion: Suggestion) {
 - [ ] Carthage support
 - [ ] Tests
 
-## Change Log
-
-See [Changelog.md](https://github.com/manuelescrig/SuggestionsBox/blob/master/CHANGELOG.md)
-
 ## Author
 
 - Created and maintained by Manuel Escrig Ventura, [@manuelescrig](https://www.twitter.com/manuelescrig/)
@@ -169,4 +165,4 @@ See [Changelog.md](https://github.com/manuelescrig/SuggestionsBox/blob/master/CH
 
 ## License
 
-SuggestionsBox is available under the MIT license. See the LICENSE file for more info.
+SuggestionsBox is available under the MIT license. See the [LICENSE.md](https://github.com/manuelescrig/SuggestionsBox/blob/master/LICENSE.md) file for more info.
