@@ -84,7 +84,7 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         SuggestionsBoxTheme.tableCellTitleTextColor = UIColor.blackColor()
         SuggestionsBoxTheme.tableCellDescriptionTextColor = UIColor.lightGrayColor()
         SuggestionsBoxTheme.navigationBarBackgroundColor = UIColor(red:19/255.0, green:100/255.0, blue:155/255.0, alpha: 1.0)
-        
+
         let navigationBar = UINavigationController.init(rootViewController: suggestionsBox)
         self.presentViewController(navigationBar, animated: true, completion: nil)
 
@@ -130,7 +130,7 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
 
     func getDummyData() {
 
-        let suggestion1 = Suggestion.init(suggestionId: "1", title: "TitleTitle", description: "Description", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
+        let suggestion1 = Suggestion.init(suggestionId: "1", title: "Lorem ipsum dolor sit amet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion1)
 
         let suggestion2 = Suggestion.init(suggestionId: "2", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
@@ -139,7 +139,7 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         let suggestion3 = Suggestion.init(suggestionId: "3", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion3)
 
-        let suggestion4 = Suggestion.init(suggestionId: "4", title: "Title", description: "Description", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
+        let suggestion4 = Suggestion.init(suggestionId: "4", title: "Lorem ipsum dolor sit amet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user: "Manuel", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion4)
 
         let suggestion5 = Suggestion.init(suggestionId: "5", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
@@ -148,24 +148,24 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
         let suggestion6 = Suggestion.init(suggestionId: "6", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel Escrig Ventura", favorites: ["4564"], createdAt: NSDate())
         self.featureRequests.append(suggestion6)
 
-        let comment1 = Comment.init(suggestionId: "1", commentId: "1", description: "Comment Description", user: "Manuel", createdAt: NSDate())
+        let comment1 = Comment.init(suggestionId: "1", commentId: "1", description: "Lorem ipsum dolor sit amet", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment1)
 
-        let comment2 = Comment.init(suggestionId: "2", commentId: "2", description: "Comment Description", user: "Manuel", createdAt: NSDate())
+        let comment2 = Comment.init(suggestionId: "2", commentId: "2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment2)
 
         let comment3 = Comment.init(suggestionId: "2", commentId: "3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment3)
-        
+
         let comment4 = Comment.init(suggestionId: "3", commentId: "4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment4)
-        
+
         let comment5 = Comment.init(suggestionId: "4", commentId: "5", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment5)
-        
+
         let comment6 = Comment.init(suggestionId: "5", commentId: "6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment6)
-        
+
         let comment7 = Comment.init(suggestionId: "6", commentId: "7", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: "Manuel", createdAt: NSDate())
         self.comments.append(comment7)
     }
