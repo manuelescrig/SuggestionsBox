@@ -19,7 +19,7 @@ An **iOS library** to aggregate **users feedback** about suggestions, features o
 - [x] List and add new suggestions
 - [x] Comment and vote other suggestions
 - [x] Search inside Titles and Descriptions
-- [x] Customizable colors and style
+- [x] Customizable colors and strings
 - [x] Localizable
 
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15703910/2b646d9c-27e8-11e6-889c-0eee15ede7e3.jpg"></p>
