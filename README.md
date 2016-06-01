@@ -1,7 +1,7 @@
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15174018/cfd2f16c-175f-11e6-9a15-4708166834db.png"></p>
 
 # SuggestionsBox
-[![CI Status](http://img.shields.io/travis/Manuel Escrig Ventura/SuggestionsBox.svg?style=flat)](https://travis-ci.org/Manuel Escrig Ventura/SuggestionsBox)
+[![Build Status](https://travis-ci.org/manuelescrig/SuggestionsBox.svg?branch=master)](https://travis-ci.org/manuelescrig/SuggestionsBox)
 [![Version](https://img.shields.io/cocoapods/v/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![License](https://img.shields.io/cocoapods/l/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Platform](https://img.shields.io/cocoapods/p/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
