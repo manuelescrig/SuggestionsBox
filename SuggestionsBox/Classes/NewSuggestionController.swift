@@ -268,17 +268,16 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         }
     }
 
-    // MARK: Helper
+    // MARK: Helpers
 
-    static func randomStringWithLength (len: Int) -> String {
+    static func randomStringWithLength(len: Int) -> String {
 
         let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomString: NSMutableString = NSMutableString(capacity: len)
 
-        var randomString: NSMutableString = NSMutableString(capacity: len)
-
-        for (var i=0; i < len; i++) {
-            var length = UInt32 (letters.length)
-            var rand = arc4random_uniform(length)
+        for _ in 1...len {
+            let length = UInt32 (letters.length)
+            let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
 

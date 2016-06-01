@@ -70,13 +70,13 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         self.view.addSubview(self.tableView)
     }
 
-    public override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
         // Get Data
         self.getData()
 
-        if let index = suggestion?.favorites.indexOf(SuggestionsBoxTheme.userId) {
+        if (suggestion?.favorites.contains(SuggestionsBoxTheme.userId) == true ) {
             self.iconFavoriteSuggestion()
         } else {
             self.iconUnFavoriteSuggestion()
