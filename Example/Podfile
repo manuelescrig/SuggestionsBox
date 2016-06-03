@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SuggestionsBox_Example' do
+  pod 'SuggestionsBox', :path => '../'
+
+  target 'SuggestionsBox_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
