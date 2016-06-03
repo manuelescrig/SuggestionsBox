@@ -1,0 +1,6 @@
+framework module SuggestionsBox {
+  umbrella header "SuggestionsBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

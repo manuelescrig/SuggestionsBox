@@ -1,0 +1,16 @@
+PODS:
+  - SuggestionsBox (0.1.0)
+
+DEPENDENCIES:
+  - SuggestionsBox (from `../`)
+
+EXTERNAL SOURCES:
+  SuggestionsBox:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SuggestionsBox: 823c0404791fd37d5dddd998a167deb3dd085e01
+
+PODFILE CHECKSUM: 79bd6933df0fc7a5db6ddd5bd7db736a5187c872
+
+COCOAPODS: 1.0.1

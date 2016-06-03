@@ -7,36 +7,24 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'SuggestionsBox'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SuggestionsBox.'
+s.name             = 'SuggestionsBox'
+s.version          = '1.1.1'
+s.summary          = 'SuggestionsBox helps you build better a product trough your user suggestions.'
+s.description      = <<-DESC
+An iOS library to aggregate users feedback about suggestions, features or comments in order to help you build a better product.
+DESC
+s.homepage         = 'https://github.com/manuelescrig/SuggestionsBox'
+s.screenshots     = 'https://cloud.githubusercontent.com/assets/1849990/15703910/2b646d9c-27e8-11e6-889c-0eee15ede7e3.jpg'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Manuel Escrig Ventura' => 'manuelescrig@gmail.com' }
+s.source           = { :git => 'https://github.com/manuelescrig/SuggestionsBox.git', :tag => s.version.to_s }
+s.social_media_url = 'https://twitter.com/manuelescrig'
+s.ios.deployment_target = '8.0'
+s.source_files = 'SuggestionsBox/Classes/**/*'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/SuggestionsBox'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Manuel Escrig Ventura' => 'manuel.escrig@ecrome.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/SuggestionsBox.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'SuggestionsBox/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'SuggestionsBox' => ['SuggestionsBox/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+# s.resource_bundles = {
+#   'SuggestionsBox' => ['SuggestionsBox/Assets/*.png']
+# }
+# s.public_header_files = 'Pod/Classes/**/*.h'
+# s.frameworks = 'UIKit', 'MapKit'
 end
