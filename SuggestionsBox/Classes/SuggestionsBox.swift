@@ -6,7 +6,9 @@
 //
 //
 
-
+/**
+ SuggestionsBoxTheme public class that represents the style of the library.
+ */
 public class SuggestionsBoxTheme {
 
     // Strings
@@ -67,6 +69,9 @@ public class SuggestionsBoxTheme {
 
 }
 
+/**
+ SuggestionsBoxDelegate public protocol to be implemented in your ViewController in order to add the data and receive call-backs.
+ */
 public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
     func suggestions() -> Array<Suggestion>
@@ -83,7 +88,9 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
 }
 
-/// SuggestionsBox ViewController
+/**
+ SuggestionsBox public class that represents the main TableViewController.
+ */
 public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     public weak var delegate: SuggestionsBoxDelegate?
