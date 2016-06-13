@@ -11,6 +11,7 @@ import SuggestionsBox
 
 class ViewController: UIViewController, SuggestionsBoxDelegate {
 
+        
     var label: UILabel = UILabel.init()
     var imageView: UIImageView = UIImageView.init()
     var featureRequests = [Suggestion]()
@@ -66,8 +67,6 @@ class ViewController: UIViewController, SuggestionsBoxDelegate {
     // MARK: UI Actions
 
     func rightBarButtonItemClicked(sender: UIBarButtonItem) {
-
-        print("rightBarButtonItemClicked")
 
         let suggestionsBox = SuggestionsBox()
         suggestionsBox.delegate = self

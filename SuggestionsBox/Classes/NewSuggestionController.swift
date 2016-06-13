@@ -218,10 +218,8 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
             cell.delegate = self
             cell.tag = indexPath.row
             if indexPath.row == 0 {
-                print(titleText)
                 titleText = cell.configure(titleText, placeholder: SuggestionsBoxTheme.newSuggestionTitlePlaceholderText)
             } else {
-                print(descriptionText)
                 descriptionText = cell.configure(descriptionText, placeholder: SuggestionsBoxTheme.newSuggestionDescriptionPlaceholderText)
             }
         } else {

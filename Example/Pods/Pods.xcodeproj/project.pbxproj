@@ -10,6 +10,7 @@
 		0589C0AB2312E5BF3D4E6F2028A9C398 /* Pods-SuggestionsBox_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F36A8B7F3C59A1787A9BD817E60E807 /* Pods-SuggestionsBox_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		129FBC38FE75556FBB2569A991347EA4 /* Pods-SuggestionsBox_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E6CFA2E2A907CC6EC581C396095F6F /* Pods-SuggestionsBox_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379AE6F2DAE056A47BB7E61D3D131079 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0922D874DB7DB00FAF94BA81FE3BEE4 /* Suggestion.swift */; };
+		429740B81D0E968900E6BC71 /* SuggestionsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B773BBF7DBC707910F5B3BD3BD03F592 /* SuggestionsBox.swift */; };
 		64292E855AB2975627BA646F21945BC0 /* SuggestionsBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7178159730D59DE778686854155355D3 /* SuggestionsBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66B933AC73878444CC3067F4AB24FB96 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F580C0E75ECEA0DEC5B56A1AE10F3A9 /* DetailController.swift */; };
 		6CA0D6FC6351DB199DC96F6EECFD8091 /* Pods-SuggestionsBox_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11454707A1A3C64EE36A6A72733E21A0 /* Pods-SuggestionsBox_Tests-dummy.m */; };
@@ -19,7 +20,6 @@
 		A81E47BACE9D2E3FE36B2D92D66D51C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		B1CC526D28FA4BCF368D71659F974846 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EEEA4D6E65A2711FE43CC2C642C62 /* Comment.swift */; };
 		CB11666A350E30C968A481CA2B504A19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		CD70310C17F0951C4B803A71078E5444 /* SuggestionsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B773BBF7DBC707910F5B3BD3BD03F592 /* SuggestionsBox.swift */; };
 		D7ECF51977637A8AD30ECA55CA522975 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		F84D827C664BC48D1A67019D1E21A254 /* NewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903925029BE30D0D831B2AA7261633D7 /* NewCommentController.swift */; };
 /* End PBXBuildFile section */
@@ -374,7 +374,7 @@
 				9359E6C148E3F08C5F6BFE5FB872BE0C /* NewSuggestionController.swift in Sources */,
 				379AE6F2DAE056A47BB7E61D3D131079 /* Suggestion.swift in Sources */,
 				7E6A72FBC26D0B4E22CB4417B60E2703 /* SuggestionsBox-dummy.m in Sources */,
-				CD70310C17F0951C4B803A71078E5444 /* SuggestionsBox.swift in Sources */,
+				429740B81D0E968900E6BC71 /* SuggestionsBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 258904D1DE767D5BD2D7B0E6657406D4 /* Pods-SuggestionsBox_Tests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -443,7 +444,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SuggestionsBox_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SuggestionsBox_Tests/Pods-SuggestionsBox_Tests.modulemap";
@@ -465,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 041CFD1D5318EEF41F7B179534D4BF56 /* SuggestionsBox.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -494,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76512595E0938B61E924E259EA4A860D /* Pods-SuggestionsBox_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -505,7 +508,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SuggestionsBox_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SuggestionsBox_Tests/Pods-SuggestionsBox_Tests.modulemap";
@@ -527,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FB34C0021651BF9C0608D3F65FD0AED /* Pods-SuggestionsBox_Example.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -538,7 +542,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SuggestionsBox_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SuggestionsBox_Example/Pods-SuggestionsBox_Example.modulemap";
@@ -560,6 +564,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF1EDB8EA31FC22D313F5A061AF9F477 /* Pods-SuggestionsBox_Example.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -571,7 +576,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SuggestionsBox_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SuggestionsBox_Example/Pods-SuggestionsBox_Example.modulemap";
@@ -636,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 041CFD1D5318EEF41F7B179534D4BF56 /* SuggestionsBox.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;

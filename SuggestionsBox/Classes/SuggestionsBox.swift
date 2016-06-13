@@ -187,8 +187,6 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     override public func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        print("viewWillLayoutSubviews")
-
         self.searchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, SuggestionsBoxTheme.sizeSearchViewHeight)
         self.tableView.frame = self.view.frame
 

@@ -3,6 +3,7 @@
 # SuggestionsBox
 [![Build Status](https://travis-ci.org/manuelescrig/SuggestionsBox.svg?branch=master)](https://travis-ci.org/manuelescrig/SuggestionsBox)
 [![Version](https://img.shields.io/cocoapods/v/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Platform](https://img.shields.io/cocoapods/p/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Language](https://img.shields.io/badge/language-swift-oragne.svg?style=flat)](https://developer.apple.com/swift)
@@ -37,7 +38,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Requirements
 
-Requires iOS SDK version > 7.0
+Requires iOS SDK version > 8.0
 
 Requires ARC
 
@@ -154,7 +155,7 @@ func suggestionUnFavorited(suggestion: Suggestion) {
 
 ## Roadmap
 - [x] CocoaPods support
-- [ ] Carthage support
+- [x] Carthage support
 - [ ] Tests
 
 ## Author
