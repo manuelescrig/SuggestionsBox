@@ -1,20 +1,29 @@
 //
 //  SuggestionsBox.swift
 //  SuggestionsBox
+//  An iOS library to aggregate users feedback about suggestions,
+//  features or comments in order to help you build a better product.
+//
+//  https://github.com/manuelescrig/SuggestionsBox
 //
 //  Created by Manuel Escrig Ventura on 30/04/16.
-//
-//
+//  Licence: MIT-Licence
 
 /**
- SuggestionsBoxTheme public class that represents the style of the library.
+ * SuggestionsBoxTheme public class that represents the style of the library.
  */
 public class SuggestionsBoxTheme {
 
-    // Strings
+    /// Name of the app
     public static var appName: String = "SuggestionsBox Example"
+
+    /// Name of the SuggestionsBox module
     public static var title: String = "SuggestionsBox"
+    
+    /// Header text in the list of suggestions
     public static var headerText: String = ""
+    
+    /// Footer text in the list of suggestions
     public static var footerText: String = ""
 
     public static var detailSuggestionSectionText: String = "Suggestion Info"
@@ -70,7 +79,8 @@ public class SuggestionsBoxTheme {
 }
 
 /**
- SuggestionsBoxDelegate public protocol to be implemented in your ViewController in order to add the data and receive call-backs.
+ * SuggestionsBoxDelegate public protocol to be implemented in your ViewController 
+ * in order to add the data and receive call-backs.
  */
 public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
@@ -89,7 +99,7 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 }
 
 /**
- SuggestionsBox public class that represents the main TableViewController.
+ * SuggestionsBox public class that represents the main TableViewController.
  */
 public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 

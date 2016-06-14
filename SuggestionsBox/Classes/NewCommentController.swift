@@ -1,10 +1,13 @@
 //
 //  NewCommentController.swift
 //  SuggestionsBox
+//  An iOS library to aggregate users feedback about suggestions,
+//  features or comments in order to help you build a better product.
+//
+//  https://github.com/manuelescrig/SuggestionsBox
 //
 //  Created by Manuel Escrig Ventura on 30/04/16.
-//
-//
+//  Licence: MIT-Licence
 
 
 class NewCommentController: UITableViewController, TextViewCellDelegate {

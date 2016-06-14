@@ -1,14 +1,17 @@
 //
 //  Comment.swift
 //  SuggestionsBox
+//  An iOS library to aggregate users feedback about suggestions,
+//  features or comments in order to help you build a better product.
+//
+//  https://github.com/manuelescrig/SuggestionsBox
 //
 //  Created by Manuel Escrig Ventura on 30/04/16.
-//
-//
+//  Licence: MIT-Licence
 
 /**
- Comment public class that represents the model for comments for each suggestion.
-  */
+ * Comment public class that represents the model for comments for each suggestion.
+ */
 public class Comment {
 
     /// An string representing the ID of the suggestion.
