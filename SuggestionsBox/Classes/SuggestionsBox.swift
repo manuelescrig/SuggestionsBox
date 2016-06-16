@@ -51,7 +51,7 @@ public class SuggestionsBoxTheme {
     public static var newCommentFooterText: String = "Powered by SuggestionsBox"
 
     // Colors
-    public static var navigationBarBackgroundColor: UIColor = UIColor.grayColor()
+    public static var navigationBarBackgroundColor: UIColor = UINavigationBar.appearance().barTintColor!
     public static var navigationBarTexColor: UIColor = UIColor.whiteColor()
     public static var navigationBarButtonColor: UIColor = UIColor.whiteColor()
     public static var navigationBarHeartColor: UIColor = UIColor.redColor()
@@ -198,7 +198,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         super.viewWillLayoutSubviews()
 
         self.searchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, SuggestionsBoxTheme.sizeSearchViewHeight)
-        self.tableView.frame = self.view.frame
+        self.tableView.frame = self.view.bounds
 
         self.headerLabel.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, SuggestionsBoxTheme.sizeSearchViewHeight, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, SuggestionsBoxTheme.sizeTableViewHeaderViewHeight)
         self.headerView.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, SuggestionsBoxTheme.sizeTableViewHeaderViewHeight + SuggestionsBoxTheme.sizeSearchViewHeight)

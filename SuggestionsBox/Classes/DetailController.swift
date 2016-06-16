@@ -92,7 +92,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        self.tableView.frame = self.view.frame
+        self.tableView.frame = self.view.bounds
         self.newCommentButton.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding * 2, SuggestionsBoxTheme.sizeTableViewCellDefaultHeight)
     }
 
