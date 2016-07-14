@@ -53,7 +53,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         self.tableView.tableFooterView = UIView()
 
         // Footer Label
-        self.footerLabel.text = SuggestionsBoxTheme.newSuggestionFooterText
+        self.footerLabel.text = SuggestionsBoxTheme.newCommentFooterText
         self.footerLabel.textAlignment = .Center
         self.footerLabel.numberOfLines = 3
         self.footerLabel.font = UIFont.systemFontOfSize(16)
