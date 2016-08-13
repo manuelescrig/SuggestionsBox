@@ -158,6 +158,12 @@ func suggestionUnFavorited(suggestion: Suggestion) {
 - [x] Carthage support
 - [ ] Tests
 
+
+## Apps using this library
+
+- [People Tracker App](http://itunes.apple.com/us/app/people-tracker-pro/id539205975?ls=1&mt=8), [www.peopletrackerapp.com](http://www.peopletrackerapp.com)
+
+
 ## Author
 
 - Created and maintained by Manuel Escrig Ventura, [@manuelescrig](https://www.twitter.com/manuelescrig/)
