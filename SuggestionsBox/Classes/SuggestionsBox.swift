@@ -276,6 +276,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Data
 
     public func reloadData() {
+        self.getData()
         self.tableView.reloadData()
     }
     
