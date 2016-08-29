@@ -265,7 +265,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
     public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 
         if searchText.characters.count > 0 {
-            self.searchResults = self.featureRequests.filter {$0.title.containsString(searchText) || $0.description.containsString(searchText) }
+            self.searchResults = self.featureRequests.filter {$0.title.lowercaseString.containsString(searchText) || $0.description.lowercaseString.containsString(searchText.lowercaseString) }
         } else {
             self.searchResults = self.featureRequests
         }
