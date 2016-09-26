@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SuggestionsBox'
-s.version          = '1.2.6'
+s.version          = '1.5'
 s.summary          = 'SuggestionsBox helps you build better a product trough your user suggestions.'
 s.description      = <<-DESC
 An iOS library to aggregate users feedback about suggestions, features or comments in order to help you build a better product.

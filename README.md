@@ -40,7 +40,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Requires iOS SDK version > 8.0
 
-Requires ARC
+Requires Swift 3.0
 
 ### Installation with CocoaPods
 
