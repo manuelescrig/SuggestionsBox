@@ -12,7 +12,7 @@
 
 // MARK: TextViewCell
 protocol TextViewCellDelegate: class {
-    func textDidChange(sender: TextViewCell)
+    func textDidChange(_ sender: TextViewCell)
 }
 
 class TextViewCell: UITableViewCell, UITextViewDelegate {
@@ -23,7 +23,7 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
     weak var delegate: TextViewCellDelegate?
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .Value1, reuseIdentifier: reuseIdentifier)
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         self.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
 
@@ -32,15 +32,15 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
 
         textView.contentInset = UIEdgeInsetsMake(0, -3, 0, 0)
         textView.delegate = self
-        textView.backgroundColor = UIColor.clearColor()
+        textView.backgroundColor = UIColor.clear
         textView.textColor = SuggestionsBoxTheme.tableCellTitleTextColor
-        textView.opaque = true
-        textView.font = UIFont.systemFontOfSize(18)
-        textView.scrollEnabled = false
+        textView.isOpaque = true
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.isScrollEnabled = false
         textView.showsVerticalScrollIndicator = false
         textView.showsHorizontalScrollIndicator = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.hidden = true
+        textView.isHidden = true
         textView.layer.zPosition = 1000
         self.contentView.addSubview(textView)
     }
@@ -55,33 +55,33 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
         self.contentView.removeConstraints(self.constraintsList)
         let left = self.parentTableView?.separatorInset.left
         let leftConstraint = NSLayoutConstraint(item: self.textView,
-                                                attribute:.Left,
-                                                relatedBy: .Equal,
+                                                attribute:.left,
+                                                relatedBy: .equal,
                                                 toItem: self.contentView,
-                                                attribute: .Left,
+                                                attribute: .left,
                                                 multiplier: 1.0,
                                                 constant: left!)
         let rightConstraint = NSLayoutConstraint(item: self.textView,
-                                                 attribute:.Right,
-                                                 relatedBy: .Equal,
+                                                 attribute:.right,
+                                                 relatedBy: .equal,
                                                  toItem: self.contentView,
-                                                 attribute: .Right,
+                                                 attribute: .right,
                                                  multiplier: 1.0,
                                                  constant: -left!)
 
         self.contentView.addConstraint(NSLayoutConstraint(item: self.textView,
-            attribute:.Top,
-            relatedBy: .Equal,
+            attribute:.top,
+            relatedBy: .equal,
             toItem: self.contentView,
-            attribute: .Top,
+            attribute: .top,
             multiplier: 1.0,
             constant: 3.5))
 
         self.contentView.addConstraint(NSLayoutConstraint(item: self.textView,
-            attribute:.Bottom,
-            relatedBy: .Equal,
+            attribute:.bottom,
+            relatedBy: .equal,
             toItem: self.contentView,
-            attribute: .Bottom,
+            attribute: .bottom,
             multiplier: 1.0,
             constant: -3.5))
 
@@ -91,11 +91,11 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
         self.constraintsList.append(rightConstraint)
     }
 
-    func configure(text: String, placeholder: String) -> String {
+    func configure(_ text: String, placeholder: String) -> String {
         self.textLabel?.text = placeholder
         self.textLabel?.textColor = SuggestionsBoxTheme.tableCellDescriptionTextColor
 
-        self.textView.hidden = false
+        self.textView.isHidden = false
         self.textView.text = text
         self.textView.accessibilityValue = text
         self.textView.accessibilityLabel = placeholder
@@ -103,12 +103,12 @@ class TextViewCell: UITableViewCell, UITextViewDelegate {
         return self.textView.text
     }
 
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
 
         if textView.text.characters.count > 0 {
-            self.textLabel?.hidden = true
+            self.textLabel?.isHidden = true
         } else {
-            self.textLabel?.hidden = false
+            self.textLabel?.isHidden = false
         }
 
         UIView.setAnimationsEnabled(false)
@@ -136,7 +136,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         self.init(nibName: nil, bundle: nil)
     }
 
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -154,57 +154,57 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         // Table View
         self.tableView.estimatedRowHeight = 34 // Default UITableViewCell Height
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.register(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
 
         // Footer Label
         self.footerLabel.text = SuggestionsBoxTheme.newSuggestionFooterText
-        self.footerLabel.textAlignment = .Center
+        self.footerLabel.textAlignment = .center
         self.footerLabel.numberOfLines = 3
-        self.footerLabel.font = UIFont.systemFontOfSize(16)
+        self.footerLabel.font = UIFont.systemFont(ofSize: 16)
         self.footerLabel.textColor = SuggestionsBoxTheme.viewTextColor
-        self.footerLabel.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, 0, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
+        self.footerLabel.frame = CGRect(x: SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, y: 0, width: self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, height: SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
         self.tableView.tableFooterView = self.footerLabel
 
         // Title
         self.title = SuggestionsBoxTheme.newSuggestionTitleText
 
         // Button
-        let saveButton = UIBarButtonItem.init(barButtonSystemItem: .Save, target: self, action: #selector(save(_:)))
-        self.navigationItem.setRightBarButtonItem(saveButton, animated: false)
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        let saveButton = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
+        self.navigationItem.setRightBarButton(saveButton, animated: false)
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
 
-        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel(_:)))
-        self.navigationItem.setLeftBarButtonItem(cancelButton, animated: false)
+        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(cancel(_:)))
+        self.navigationItem.setLeftBarButton(cancelButton, animated: false)
     }
 
 
     // MARK: UI Actions
 
-    func save(sender: UIBarButtonItem) {
+    func save(_ sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let suggestion = Suggestion.init(suggestionId: NewSuggestionController.randomStringWithLength(12), title: titleText, description: descriptionText, user: SuggestionsBoxTheme.user, favorites: [], createdAt: NSDate())
+            let suggestion = Suggestion.init(suggestionId: NewSuggestionController.randomStringWithLength(12), title: titleText, description: descriptionText, user: SuggestionsBoxTheme.user, favorites: [], createdAt: Date())
             delegate.newSuggestionAdded(suggestion)
         }
 
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.dismiss(animated: true, completion: nil)
     }
 
 
-    func cancel(sender: UIBarButtonItem) {
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    func cancel(_ sender: UIBarButtonItem) {
+        self.navigationController!.dismiss(animated: true, completion: nil)
     }
 
 
     // MARK: UITableView DataSource
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 2
         } else {
@@ -212,30 +212,30 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TextViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewCell
         cell.parentTableView = self.tableView
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
 
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             cell.delegate = self
-            cell.tag = indexPath.row
-            if indexPath.row == 0 {
+            cell.tag = (indexPath as NSIndexPath).row
+            if (indexPath as NSIndexPath).row == 0 {
                 titleText = cell.configure(titleText, placeholder: SuggestionsBoxTheme.newSuggestionTitlePlaceholderText)
             } else {
                 descriptionText = cell.configure(descriptionText, placeholder: SuggestionsBoxTheme.newSuggestionDescriptionPlaceholderText)
             }
         } else {
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.textLabel!.text = SuggestionsBoxTheme.newSuggestionVersionText
-                cell.detailTextLabel?.text = UIDevice.currentDevice().systemVersion
-            } else if indexPath.row == 1 {
+                cell.detailTextLabel?.text = UIDevice.current.systemVersion
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.textLabel!.text = SuggestionsBoxTheme.newSuggestionModelText
-                cell.detailTextLabel?.text = UIDevice.currentDevice().model
-            } else if indexPath.row == 2 {
+                cell.detailTextLabel?.text = UIDevice.current.model
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.textLabel!.text = SuggestionsBoxTheme.newSuggestionSystemText
-                cell.detailTextLabel?.text = UIDevice.currentDevice().systemName
+                cell.detailTextLabel?.text = UIDevice.current.systemName
             } else {
                 cell.textLabel!.text = ""
                 cell.detailTextLabel?.text = ""
@@ -244,7 +244,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         return cell
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return SuggestionsBoxTheme.newSuggestionSuggestionSectionText
         } else {
@@ -255,7 +255,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
 
     // MARK: TextViewCellDelegate
 
-    func textDidChange(sender: TextViewCell) {
+    func textDidChange(_ sender: TextViewCell) {
 
         if sender.tag == 0 {
             titleText = sender.textView.text
@@ -264,15 +264,15 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         }
 
         if titleText.characters.count > 3 && descriptionText.characters.count > 3 {
-            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
-            self.navigationItem.rightBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
 
     // MARK: Helpers
 
-    static func randomStringWithLength(len: Int) -> String {
+    static func randomStringWithLength(_ len: Int) -> String {
 
         let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let randomString: NSMutableString = NSMutableString(capacity: len)
@@ -280,7 +280,7 @@ class NewSuggestionController: UITableViewController, UITextFieldDelegate, TextV
         for _ in 1...len {
             let length = UInt32 (letters.length)
             let rand = arc4random_uniform(length)
-            randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+            randomString.appendFormat("%C", letters.character(at: Int(rand)))
         }
 
         return randomString as String

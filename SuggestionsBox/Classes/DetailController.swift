@@ -29,7 +29,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         self.init(nibName: nil, bundle: nil)
     }
 
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -49,31 +49,31 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         // Button
         let shapeLayer: CAShapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).CGPath
-        let heart: UIButton = UIButton(type: .Custom)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.cgColor
+        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).cgPath
+        let heart: UIButton = UIButton(type: .custom)
         heart.showsTouchWhenHighlighted = false
         heart.layer.addSublayer(shapeLayer)
         heart.bounds = CGRect(x: 0, y: 0, width: 26, height: 26)
-        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), forControlEvents: .TouchDown)
+        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), for: .touchDown)
         let heartButtonItem: UIBarButtonItem = UIBarButtonItem(customView: heart)
         self.navigationItem.rightBarButtonItem = heartButtonItem
 
         // TableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.multipleTouchEnabled = false
+        self.tableView.isMultipleTouchEnabled = false
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.view.addSubview(self.tableView)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Get Data
@@ -93,13 +93,13 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewWillLayoutSubviews()
 
         self.tableView.frame = self.view.bounds
-        self.newCommentButton.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding * 2, SuggestionsBoxTheme.sizeTableViewCellDefaultHeight)
+        self.newCommentButton.frame = CGRect(x: SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, y: SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding, width: self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewCommentButtonViewPadding * 2, height: SuggestionsBoxTheme.sizeTableViewCellDefaultHeight)
     }
 
 
     // MARK: DataSource
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
 
         if SuggestionsBoxTheme.admin {
             return 3
@@ -108,7 +108,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
         case 0:
@@ -122,14 +122,14 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell?
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as UITableViewCell?
         if (cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
         }
 
-        cell!.selectionStyle = .None
+        cell!.selectionStyle = .none
         cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.textLabel!.textColor = SuggestionsBoxTheme.tableCellTitleTextColor
@@ -137,24 +137,24 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         cell!.detailTextLabel?.textColor =  SuggestionsBoxTheme.tableCellDescriptionTextColor
         cell!.detailTextLabel?.numberOfLines = 0
 
-        switch indexPath.section {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell!.textLabel!.text = suggestion?.title
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell!.textLabel!.text = suggestion?.description
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell!.textLabel!.text = suggestion?.user
-            } else if indexPath.row == 3 {
+            } else if (indexPath as NSIndexPath).row == 3 {
                 cell!.textLabel!.text = suggestion?.dateString()
-            } else if indexPath.row == 4 {
+            } else if (indexPath as NSIndexPath).row == 4 {
                 cell!.textLabel!.text = suggestion?.favoritesString()
             } else {
                 cell!.textLabel!.text = SuggestionsBoxTheme.detailNewCommentText
-                cell!.textLabel!.font = UIFont.boldSystemFontOfSize(18)
+                cell!.textLabel!.font = UIFont.boldSystemFont(ofSize: 18)
             }
         case 1:
-            let comment = comments[indexPath.row]
+            let comment = comments[(indexPath as NSIndexPath).row]
             cell!.textLabel!.text = comment.description
             cell!.detailTextLabel?.text = comment.user + " - " + comment.dateString()
 
@@ -170,15 +170,15 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     // MARK: Delegate
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
 
-        if indexPath.section == 0 && indexPath.row == 5 {
+        if (indexPath as NSIndexPath).section == 0 && (indexPath as NSIndexPath).row == 5 {
             self.add()
         }
     }
 
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var sectionName: String
         switch section {
         case 0:
@@ -199,14 +199,14 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     func iconFavoriteSuggestion() {
         let shapeLayer: CAShapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).CGPath
-        let heart: UIButton = UIButton(type: .Custom)
+        shapeLayer.fillColor = SuggestionsBoxTheme.navigationBarHeartColor.cgColor
+        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.cgColor
+        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).cgPath
+        let heart: UIButton = UIButton(type: .custom)
         heart.showsTouchWhenHighlighted = false
         heart.layer.addSublayer(shapeLayer)
         heart.bounds = CGRect(x: 0, y: 0, width: 26, height: 26)
-        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), forControlEvents: .TouchDown)
+        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), for: .touchDown)
         let heartButtonItem: UIBarButtonItem = UIBarButtonItem(customView: heart)
         self.navigationItem.rightBarButtonItem = heartButtonItem
         self.isFavorite = true
@@ -214,46 +214,46 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
     func iconUnFavoriteSuggestion() {
         let shapeLayer: CAShapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.CGColor
-        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).CGPath
-        let heart: UIButton = UIButton(type: .Custom)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = SuggestionsBoxTheme.navigationBarHeartColor.cgColor
+        shapeLayer.path = self.bezierHeartShapePathWithWidth(26, atPoint: CGPoint(x: 14, y: 15)).cgPath
+        let heart: UIButton = UIButton(type: .custom)
         heart.showsTouchWhenHighlighted = false
         heart.layer.addSublayer(shapeLayer)
         heart.bounds = CGRect(x: 0, y: 0, width: 26, height: 26)
-        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), forControlEvents: .TouchDown)
+        heart.addTarget(self, action: #selector(DetailController.favorite(_:)), for: .touchDown)
         let heartButtonItem: UIBarButtonItem = UIBarButtonItem(customView: heart)
         self.navigationItem.rightBarButtonItem = heartButtonItem
         self.isFavorite = false
     }
 
-    func degressToRadians(angle: CGFloat) -> CGFloat {
+    func degressToRadians(_ angle: CGFloat) -> CGFloat {
         return angle / 180.0 * CGFloat(M_PI)
     }
 
-    func bezierHeartShapePathWithWidth(width: CGFloat, atPoint center: CGPoint) -> UIBezierPath {
+    func bezierHeartShapePathWithWidth(_ width: CGFloat, atPoint center: CGPoint) -> UIBezierPath {
         let w: CGFloat = width / 2.5
         let path: UIBezierPath = UIBezierPath()
         // Left arc
-        path.addArcWithCenter(CGPointMake(center.x - w / 2.0, center.y - w / 2.0), radius: (w * sqrt(2.0) / 2.0), startAngle: degressToRadians(135.0), endAngle: degressToRadians(-45.0), clockwise: true)
+        path.addArc(withCenter: CGPoint(x: center.x - w / 2.0, y: center.y - w / 2.0), radius: (w * sqrt(2.0) / 2.0), startAngle: degressToRadians(135.0), endAngle: degressToRadians(-45.0), clockwise: true)
         // Right arc
-        path.addArcWithCenter(CGPointMake(center.x + w / 2.0, center.y - w / 2.0), radius: (w * sqrt(2.0) / 2.0), startAngle: degressToRadians(-135.0), endAngle: degressToRadians(45.0), clockwise: true)
-        path.addLineToPoint(CGPointMake(center.x, center.y + w))
-        path.addLineToPoint(CGPointMake(center.x - w, center.y))
-        path.closePath()
+        path.addArc(withCenter: CGPoint(x: center.x + w / 2.0, y: center.y - w / 2.0), radius: (w * sqrt(2.0) / 2.0), startAngle: degressToRadians(-135.0), endAngle: degressToRadians(45.0), clockwise: true)
+        path.addLine(to: CGPoint(x: center.x, y: center.y + w))
+        path.addLine(to: CGPoint(x: center.x - w, y: center.y))
+        path.close()
         return path
     }
 
 
     // MARK: UI Actions
 
-    func favorite(sender: UIBarButtonItem) {
+    func favorite(_ sender: UIBarButtonItem) {
 
         if isFavorite {
 
-            let index = suggestion?.favorites.indexOf(SuggestionsBoxTheme.userId)
-            suggestion?.favorites.removeAtIndex(index!)
-            self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Top)
+            let index = suggestion?.favorites.index(of: SuggestionsBoxTheme.userId)
+            suggestion?.favorites.remove(at: index!)
+            self.tableView .reloadRows(at: [IndexPath.init(item: 4, section: 0)],  with: .top)
 
             if let delegate = delegate {
                 delegate.suggestionFavorited(suggestion!)
@@ -263,7 +263,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         } else {
 
             suggestion?.favorites.append(SuggestionsBoxTheme.userId)
-            self.tableView .reloadRowsAtIndexPaths([NSIndexPath.init(forItem: 4, inSection: 0)],  withRowAnimation: .Bottom)
+            self.tableView .reloadRows(at: [IndexPath.init(item: 4, section: 0)],  with: .bottom)
             if let delegate = delegate {
                 delegate.suggestionUnFavorited(suggestion!)
             }
@@ -277,7 +277,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
         newCommentController.delegate = delegate
         newCommentController.suggestion = suggestion
         let navigationBar = UINavigationController.init(rootViewController: newCommentController)
-        self.presentViewController(navigationBar, animated: true, completion: nil)
+        self.present(navigationBar, animated: true, completion: nil)
     }
 
 
@@ -287,7 +287,7 @@ class DetailController: UIViewController, UITableViewDataSource, UITableViewDele
 
         if let delegate = delegate {
             self.comments =  delegate.commentsForSuggestion(suggestion!)
-            self.comments = self.comments.sort({ $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
+            self.comments = self.comments.sorted(by: { $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
             self.tableView.reloadData()
         }
     }

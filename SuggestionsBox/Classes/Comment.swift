@@ -12,29 +12,29 @@
 /**
  * Comment public class that represents the model for comments for each suggestion.
  */
-public class Comment {
+open class Comment {
 
     /// An string representing the ID of the suggestion.
-    public var suggestionId: String
+    open var suggestionId: String
 
     /// An string representing the ID of the comment.
-    public var commentId: String
+    open var commentId: String
 
     /// An string representing the description of the comment describing what is about with more details.
-    public var description: String
+    open var description: String
 
     /// An string representing the user that requested/created the comment.
-    public var user: String
+    open var user: String
 
     /// A date representing the date when the suggestion was created.
-    public var createdAt: NSDate
+    open var createdAt: Date
 
     /// Class initializer.
     public init(suggestionId: String,
                 commentId: String,
                 description: String,
                 user: String,
-                createdAt: NSDate) {
+                createdAt: Date) {
 
         self.suggestionId = suggestionId
         self.commentId = commentId
@@ -43,10 +43,10 @@ public class Comment {
         self.createdAt  = createdAt
     }
 
-    public func dateString() -> String {
+    open func dateString() -> String {
         let format = SuggestionsBoxTheme.detailDateFormat
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        return dateFormatter.stringFromDate(createdAt)
+        return dateFormatter.string(from: createdAt)
     }
 }

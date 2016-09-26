@@ -12,69 +12,69 @@
 /**
  * SuggestionsBoxTheme public class that represents the style of the library.
  */
-public class SuggestionsBoxTheme {
+open class SuggestionsBoxTheme {
 
     /// Name of the app
-    public static var appName: String = "SuggestionsBox Example"
+    open static var appName: String = "SuggestionsBox Example"
 
     /// Name of the SuggestionsBox module
-    public static var title: String = "SuggestionsBox"
+    open static var title: String = "SuggestionsBox"
     
     /// Header text in the list of suggestions
-    public static var headerText: String = ""
+    open static var headerText: String = ""
     
     /// Footer text in the list of suggestions
-    public static var footerText: String = ""
+    open static var footerText: String = ""
 
-    public static var detailSuggestionSectionText: String = "Suggestion Info"
-    public static var detailCommentsSectionText: String = "Comments"
-    public static var detailAdminSectionText: String = "Admin Options"
-    public static var detailNewCommentText: String = "Leave a Comment"
-    public static var detailDeleteText: String = "Delete"
-    public static var detailFavoriteText: String = "Favorite"
-    public static var detailFavoritesText: String = "Favorites"
-    public static var detailDateFormat: String = "yyyy-MM-dd"
+    open static var detailSuggestionSectionText: String = "Suggestion Info"
+    open static var detailCommentsSectionText: String = "Comments"
+    open static var detailAdminSectionText: String = "Admin Options"
+    open static var detailNewCommentText: String = "Leave a Comment"
+    open static var detailDeleteText: String = "Delete"
+    open static var detailFavoriteText: String = "Favorite"
+    open static var detailFavoritesText: String = "Favorites"
+    open static var detailDateFormat: String = "yyyy-MM-dd"
 
-    public static var newSuggestionTitleText: String = "New Suggestion"
-    public static var newSuggestionSuggestionSectionText: String = "Suggestion Info"
-    public static var newSuggestionDeviceSectionText: String = "Device Info"
-    public static var newSuggestionTitlePlaceholderText: String = "Enter Title"
-    public static var newSuggestionDescriptionPlaceholderText: String = "Enter Description"
-    public static var newSuggestionVersionText: String = "iOS Version"
-    public static var newSuggestionModelText: String = "Model Name"
-    public static var newSuggestionSystemText: String = "System Name"
-    public static var newSuggestionFooterText: String = "Powered by SuggestionsBox"
+    open static var newSuggestionTitleText: String = "New Suggestion"
+    open static var newSuggestionSuggestionSectionText: String = "Suggestion Info"
+    open static var newSuggestionDeviceSectionText: String = "Device Info"
+    open static var newSuggestionTitlePlaceholderText: String = "Enter Title"
+    open static var newSuggestionDescriptionPlaceholderText: String = "Enter Description"
+    open static var newSuggestionVersionText: String = "iOS Version"
+    open static var newSuggestionModelText: String = "Model Name"
+    open static var newSuggestionSystemText: String = "System Name"
+    open static var newSuggestionFooterText: String = "Powered by SuggestionsBox"
 
-    public static var newCommentTitleText: String = "New Comment"
-    public static var newCommentCommentSectionText: String = "Comment Info"
-    public static var newCommentCommentPlaceholderText: String = "Enter Comment"
-    public static var newCommentFooterText: String = "Powered by SuggestionsBox"
+    open static var newCommentTitleText: String = "New Comment"
+    open static var newCommentCommentSectionText: String = "Comment Info"
+    open static var newCommentCommentPlaceholderText: String = "Enter Comment"
+    open static var newCommentFooterText: String = "Powered by SuggestionsBox"
 
     // Colors
-    public static var navigationBarBackgroundColor: UIColor = UINavigationBar.appearance().barTintColor!
-    public static var navigationBarTexColor: UIColor = UIColor.whiteColor()
-    public static var navigationBarButtonColor: UIColor = UIColor.whiteColor()
-    public static var navigationBarHeartColor: UIColor = UIColor.redColor()
-    public static var viewBackgroundColor: UIColor = UIColor.groupTableViewBackgroundColor()
-    public static var viewTextColor: UIColor = UIColor.lightGrayColor()
-    public static var tableSeparatorColor: UIColor = UIColor.groupTableViewBackgroundColor()
-    public static var tableCellBackgroundColor: UIColor = UIColor.whiteColor()
-    public static var tableCellTitleTextColor: UIColor = UIColor.blackColor()
-    public static var tableCellDescriptionTextColor: UIColor = UIColor.lightGrayColor()
+    open static var navigationBarBackgroundColor: UIColor = UINavigationBar.appearance().barTintColor!
+    open static var navigationBarTexColor: UIColor = UIColor.white
+    open static var navigationBarButtonColor: UIColor = UIColor.white
+    open static var navigationBarHeartColor: UIColor = UIColor.red
+    open static var viewBackgroundColor: UIColor = UIColor.groupTableViewBackground
+    open static var viewTextColor: UIColor = UIColor.lightGray
+    open static var tableSeparatorColor: UIColor = UIColor.groupTableViewBackground
+    open static var tableCellBackgroundColor: UIColor = UIColor.white
+    open static var tableCellTitleTextColor: UIColor = UIColor.black
+    open static var tableCellDescriptionTextColor: UIColor = UIColor.lightGray
 
     // Sizes
-    public static var sizeSearchViewHeight: CGFloat = 44
-    public static var sizeTableViewHeaderViewPadding: CGFloat = 10
-    public static var sizeTableViewHeaderViewHeight: CGFloat = 80
-    public static var sizeTableViewFooterViewPadding: CGFloat = 10
-    public static var sizeTableViewFooterViewHeight: CGFloat = 80
-    public static var sizeTableViewCellDefaultHeight: CGFloat = 44
-    public static var sizeTableViewCommentButtonViewPadding: CGFloat = 20
+    open static var sizeSearchViewHeight: CGFloat = 44
+    open static var sizeTableViewHeaderViewPadding: CGFloat = 10
+    open static var sizeTableViewHeaderViewHeight: CGFloat = 80
+    open static var sizeTableViewFooterViewPadding: CGFloat = 10
+    open static var sizeTableViewFooterViewHeight: CGFloat = 80
+    open static var sizeTableViewCellDefaultHeight: CGFloat = 44
+    open static var sizeTableViewCommentButtonViewPadding: CGFloat = 20
 
     // User
-    public static var user: String = "Anonymous"
-    public static var userId: String = ""
-    public static var admin: Bool = false
+    open static var user: String = "Anonymous"
+    open static var userId: String = ""
+    open static var admin: Bool = false
 
 }
 
@@ -86,24 +86,24 @@ public protocol SuggestionsBoxDelegate: NSObjectProtocol {
 
     func suggestions() -> Array<Suggestion>
 
-    func commentsForSuggestion(suggestion: Suggestion) -> Array<Comment>
+    func commentsForSuggestion(_ suggestion: Suggestion) -> Array<Comment>
 
-    func newSuggestionAdded(newSuggestion: Suggestion)
+    func newSuggestionAdded(_ newSuggestion: Suggestion)
 
-    func newCommentForSuggestionAdded(suggestion: Suggestion, newComment: Comment)
+    func newCommentForSuggestionAdded(_ suggestion: Suggestion, newComment: Comment)
 
-    func suggestionFavorited(suggestion: Suggestion)
+    func suggestionFavorited(_ suggestion: Suggestion)
 
-    func suggestionUnFavorited(suggestion: Suggestion)
+    func suggestionUnFavorited(_ suggestion: Suggestion)
 
 }
 
 /**
  * SuggestionsBox public class that represents the main TableViewController.
  */
-public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+open class SuggestionsBox: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
-    public weak var delegate: SuggestionsBoxDelegate?
+    open weak var delegate: SuggestionsBoxDelegate?
 
     var tableView: UITableView = UITableView.init()
     var searchBar: UISearchBar = UISearchBar.init()
@@ -122,11 +122,11 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         self.init(nibName: nil, bundle: nil)
     }
 
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Content View
@@ -141,22 +141,22 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         self.title = SuggestionsBoxTheme.title
 
         // Button
-        let addButton = UIBarButtonItem.init(barButtonSystemItem: .Add, target: self, action: #selector(add(_:)))
-        self.navigationItem.setRightBarButtonItem(addButton, animated: false)
+        let addButton = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+        self.navigationItem.setRightBarButton(addButton, animated: false)
 
-        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .Done, target: self, action: #selector(done(_:)))
-        self.navigationItem.setLeftBarButtonItem(cancelButton, animated: false)
+        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(done(_:)))
+        self.navigationItem.setLeftBarButton(cancelButton, animated: false)
 
         // TableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.multipleTouchEnabled = false
+        self.tableView.isMultipleTouchEnabled = false
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.view.addSubview(self.tableView)
 
         // SearchBar
@@ -165,61 +165,61 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
 
         // Header Label
         headerLabel.text = SuggestionsBoxTheme.headerText
-        headerLabel.textAlignment = .Center
+        headerLabel.textAlignment = .center
         headerLabel.numberOfLines = 3
-        headerLabel.font = UIFont.systemFontOfSize(16)
+        headerLabel.font = UIFont.systemFont(ofSize: 16)
         headerLabel.textColor = SuggestionsBoxTheme.viewTextColor
         headerView.addSubview(headerLabel)
         headerView.addSubview(searchBar)
 
         footerLabel.text = SuggestionsBoxTheme.footerText
-        footerLabel.textAlignment = .Center
+        footerLabel.textAlignment = .center
         footerLabel.numberOfLines = 3
-        footerLabel.font = UIFont.systemFontOfSize(16)
+        footerLabel.font = UIFont.systemFont(ofSize: 16)
         footerLabel.textColor = SuggestionsBoxTheme.viewTextColor
 
     }
 
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Get Data
         self.getData()
     }
 
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
     }
 
     // MARK: Layout Methods
 
-    override public func viewWillLayoutSubviews() {
+    override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        self.searchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, SuggestionsBoxTheme.sizeSearchViewHeight)
+        self.searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: SuggestionsBoxTheme.sizeSearchViewHeight)
         self.tableView.frame = self.view.bounds
 
-        self.headerLabel.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, SuggestionsBoxTheme.sizeSearchViewHeight, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, SuggestionsBoxTheme.sizeTableViewHeaderViewHeight)
-        self.headerView.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, SuggestionsBoxTheme.sizeTableViewHeaderViewHeight + SuggestionsBoxTheme.sizeSearchViewHeight)
+        self.headerLabel.frame = CGRect(x: SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, y: SuggestionsBoxTheme.sizeSearchViewHeight, width: self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, height: SuggestionsBoxTheme.sizeTableViewHeaderViewHeight)
+        self.headerView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: SuggestionsBoxTheme.sizeTableViewHeaderViewHeight + SuggestionsBoxTheme.sizeSearchViewHeight)
         self.tableView.tableHeaderView = self.headerView
 
-        self.footerLabel.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, 0, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
+        self.footerLabel.frame = CGRect(x: SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, y: 0, width: self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, height: SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
         self.tableView.tableFooterView = footerLabel
     }
 
 
     // MARK: DataSource
 
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.searchResults.count
     }
 
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let suggestion = searchResults[indexPath.row]
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell?
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let suggestion = searchResults[(indexPath as NSIndexPath).row]
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as UITableViewCell?
         if (cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
         }
         cell!.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
         cell!.contentView.backgroundColor = SuggestionsBoxTheme.tableCellBackgroundColor
@@ -235,37 +235,37 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: Delegate
 
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
         self.searchBar.resignFirstResponder()
 
         let detailController = DetailController()
         detailController.delegate = delegate
-        detailController.suggestion = searchResults[indexPath.row]
+        detailController.suggestion = searchResults[(indexPath as NSIndexPath).row]
         self.navigationController?.pushViewController(detailController, animated: true)
     }
 
 
     // MARK: UI Actions
 
-    func done(sender: UIBarButtonItem) {
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    func done(_ sender: UIBarButtonItem) {
+        self.navigationController!.dismiss(animated: true, completion: nil)
     }
 
-    func add(sender: UIBarButtonItem) {
+    func add(_ sender: UIBarButtonItem) {
         let newSuggestionController = NewSuggestionController(nibName: nil, bundle: nil)
         newSuggestionController.delegate = delegate
         let navigationBar = UINavigationController.init(rootViewController: newSuggestionController)
-        self.presentViewController(navigationBar, animated: true, completion: nil)
+        self.present(navigationBar, animated: true, completion: nil)
     }
 
 
     // MARK: UISearchBar
 
-    public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    open func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         if searchText.characters.count > 0 {
-            self.searchResults = self.featureRequests.filter {$0.title.lowercaseString.containsString(searchText) || $0.description.lowercaseString.containsString(searchText.lowercaseString) }
+            self.searchResults = self.featureRequests.filter {$0.title.lowercased().contains(searchText) || $0.description.lowercased().contains(searchText.lowercased()) }
         } else {
             self.searchResults = self.featureRequests
         }
@@ -275,7 +275,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: Data
 
-    public func reloadData() {
+    open func reloadData() {
         self.getData()
         self.tableView.reloadData()
     }
@@ -285,7 +285,7 @@ public class SuggestionsBox: UIViewController, UITableViewDataSource, UITableVie
         if let delegate = delegate {
             let suggestions = delegate.suggestions()
             self.featureRequests = suggestions
-            self.searchResults = self.featureRequests.sort({ $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
+            self.searchResults = self.featureRequests.sorted(by: { $0.createdAt.timeIntervalSinceNow > $1.createdAt.timeIntervalSinceNow })
             self.tableView.reloadData()
         }
     }

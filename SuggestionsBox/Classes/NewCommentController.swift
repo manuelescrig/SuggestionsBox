@@ -26,7 +26,7 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         self.init(nibName: nil, bundle: nil)
     }
 
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -47,82 +47,82 @@ class NewCommentController: UITableViewController, TextViewCellDelegate {
         // Table View
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.registerClass(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.register(TextViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.separatorColor = SuggestionsBoxTheme.tableSeparatorColor
         self.tableView.backgroundColor = SuggestionsBoxTheme.viewBackgroundColor
         self.tableView.tableFooterView = UIView()
 
         // Footer Label
         self.footerLabel.text = SuggestionsBoxTheme.newCommentFooterText
-        self.footerLabel.textAlignment = .Center
+        self.footerLabel.textAlignment = .center
         self.footerLabel.numberOfLines = 3
-        self.footerLabel.font = UIFont.systemFontOfSize(16)
+        self.footerLabel.font = UIFont.systemFont(ofSize: 16)
         self.footerLabel.textColor = SuggestionsBoxTheme.viewTextColor
-        self.footerLabel.frame = CGRectMake(SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, 0, self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
+        self.footerLabel.frame = CGRect(x: SuggestionsBoxTheme.sizeTableViewHeaderViewPadding, y: 0, width: self.view.frame.size.width - SuggestionsBoxTheme.sizeTableViewHeaderViewPadding * 2, height: SuggestionsBoxTheme.sizeTableViewFooterViewHeight)
         self.tableView.tableFooterView = self.footerLabel
 
         // Button
-        let saveButton = UIBarButtonItem.init(barButtonSystemItem: .Save, target: self, action: #selector(save(_:)))
-        self.navigationItem.setRightBarButtonItem(saveButton, animated: false)
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        let saveButton = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
+        self.navigationItem.setRightBarButton(saveButton, animated: false)
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
 
-        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel(_:)))
-        self.navigationItem.setLeftBarButtonItem(cancelButton, animated: false)
+        let cancelButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(cancel(_:)))
+        self.navigationItem.setLeftBarButton(cancelButton, animated: false)
     }
 
     // MARK: UI Actions
 
-    func save(sender: UIBarButtonItem) {
+    func save(_ sender: UIBarButtonItem) {
 
         if let delegate = delegate {
-            let comment = Comment.init(suggestionId: (suggestion?.suggestionId)!, commentId: NewSuggestionController.randomStringWithLength(12), description: commentText, user: SuggestionsBoxTheme.user, createdAt: NSDate())
+            let comment = Comment.init(suggestionId: (suggestion?.suggestionId)!, commentId: NewSuggestionController.randomStringWithLength(12), description: commentText, user: SuggestionsBoxTheme.user, createdAt: Date())
             delegate.newCommentForSuggestionAdded(suggestion!, newComment: comment)
         }
 
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController!.dismiss(animated: true, completion: nil)
     }
 
 
-    func cancel(sender: UIBarButtonItem) {
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    func cancel(_ sender: UIBarButtonItem) {
+        self.navigationController!.dismiss(animated: true, completion: nil)
     }
 
 
     // MARK: UITableView DataSource
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TextViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewCell
         cell.delegate = self
         cell.parentTableView = self.tableView
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         cell.configure("", placeholder: SuggestionsBoxTheme.newCommentCommentPlaceholderText)
 
         return cell
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return SuggestionsBoxTheme.newCommentCommentSectionText
     }
 
     // MARK: TextViewCellDelegate
 
-    func textDidChange(sender: TextViewCell) {
+    func textDidChange(_ sender: TextViewCell) {
 
         commentText = sender.textView.text
 
         if commentText.characters.count > 3 {
-            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
-            self.navigationItem.rightBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
 }
