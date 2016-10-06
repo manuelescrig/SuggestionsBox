@@ -10,6 +10,10 @@
 
 An **iOS library** to aggregate **users feedback** about suggestions, features or comments in order to help you build a **better product**. 
 
+### Swift Versions
+- [User version 1.5 for Swift 3](https://github.com/manuelescrig/SuggestionsBox/releases/tag/1.5)
+- [User version 1.2.6 for Swift 2.2](https://github.com/manuelescrig/SuggestionsBox/releases/tag/1.2.6)
+
 ## Why SuggestionsBox?
 - [x] Aggregates customer feedback
 - [x] Let your customer decide 
