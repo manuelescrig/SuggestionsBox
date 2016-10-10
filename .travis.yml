@@ -14,4 +14,4 @@ xcode_sdk: iphonesimulator10.0 #5
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-pod lib lint
+# - pod lib lint
