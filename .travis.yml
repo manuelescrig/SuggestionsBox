@@ -1,4 +1,4 @@
-# references:
+# # references:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
@@ -15,3 +15,4 @@ xcode_sdk: iphonesimulator10.0 #5
 # - pod install --project-directory=Example
 script:
 # - pod lib lint
+- xcodebuild clean build test -project Example/SuggestionsBox.xcworkspace -scheme SuggestionsBox-Example
