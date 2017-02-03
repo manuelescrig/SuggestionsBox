@@ -1,7 +1,3 @@
-# # references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
 language: objective-c
 osx_image: xcode8
 xcode_workspace: Example/SuggestionsBox.xcworkspace #3
