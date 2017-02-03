@@ -1,8 +1,7 @@
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/1849990/15174018/cfd2f16c-175f-11e6-9a15-4708166834db.png"></p>
 
 # SuggestionsBox
-[![Build Status](https://travis-ci.org/manuelescrig/SuggestionsBox.svg?branch=master)](https://travis-ci.org/manuelescrig/SuggestionsBox)
-[![Version](https://img.shields.io/cocoapods/v/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58933102c8fcc401007586b8&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/58933102c8fcc401007586b8/build/latest?branch=master)[![Version](https://img.shields.io/cocoapods/v/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
 [![Platform](https://img.shields.io/cocoapods/p/SuggestionsBox.svg?style=flat)](http://cocoapods.org/pods/SuggestionsBox)
